@@ -15,7 +15,7 @@ const Header = () => {
 
     return (
         <header className="w-full h-auto flex justify-center">
-            <div className="max-w-[1542px] w-full p-[40px] border-1 flex justify-between">
+            <div className="max-w-[1542px] w-full p-[40px] flex justify-between">
                 <div className="flex">
                     <img src="/full-logo.svg" className="w-[100px] mr-[52px]" />
                     <div className="flex items-center gap-[20px]">

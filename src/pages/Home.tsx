@@ -1,10 +1,12 @@
-import PhoneScrollAnimation from "../components/Block1/PhoneScrollAnimation"
+import PhoneScrollAnimation from "../components/Hero/PhoneScrollAnimation"
 import Header from "../components/Header"
+import Hero from "../components/Hero/Hero"
 
 const Home: React.FC = () => {
     return (
         <div>
             <Header />
+            <Hero />
             <PhoneScrollAnimation />
         </div>
     )
