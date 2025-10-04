@@ -1,18 +1,35 @@
 import { useEffect, useRef, useState } from 'react';
-import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
 import Lenis from '@studio-freight/lenis';
+import { useScrollProgress } from '../../hooks/useScrollProgress';
+import { AnimatedTextA1 } from './AnimTextA1';
+import { AnimatedTextA2 } from './AnimTextA2';
+import { AnimatedPhone } from './AnimPhone';
+import { AnimatedItems } from './AnimatedItems';
+import { motion } from 'framer-motion';
 
-const PhoneScrollAnimation = () => {
-    const ref = useRef(null);
+export const SCREENSHOTS = [
+    '/media/screen1.png',
+    '/media/screen2.png',
+    '/media/screen3.png',
+    '/media/screen4.png',
+];
+
+export const SCREEN_THRESHOLDS = [0.6, 0.75, 0.90, 1];
+
+
+
+
+export default function PhoneScrollAnimation() {
+
+
+    const ref = useRef<HTMLDivElement>(null);
     const [currentScreenshot, setCurrentScreenshot] = useState(0);
     const [direction, setDirection] = useState(1);
+    const [showA1, setShowA1] = useState(true);
+    const [showA2, setShowA2] = useState(false);
+    const [showA3, setShowA3] = useState(true);
 
-    const screenshots = [
-        '/media/screen1.png',
-        '/media/screen2.png',
-        '/media/screen3.png',
-        '/media/screen4.png',
-    ];
+    const { scrollYProgress, rotateX, y, scale, top } = useScrollProgress(ref);
 
     useEffect(() => {
         const lenis = new Lenis({
@@ -21,157 +38,70 @@ const PhoneScrollAnimation = () => {
             smoothWheel: true,
         });
 
-        function raf(time: any) {
+        const raf = (time: any) => {
             lenis.raf(time);
             requestAnimationFrame(raf);
-        }
+        };
         requestAnimationFrame(raf);
 
         return () => lenis.destroy();
     }, []);
 
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ['start start', 'end end'],
-    });
 
-    const rotateX = useTransform(scrollYProgress, [0, 0.2, 0.4], [60, 0, 0]);
-    const y = useTransform(scrollYProgress, [0, 0.4], [800, 0]);
-    const scale = useTransform(scrollYProgress, [0, 0.2], [2.2, 1]);
 
 
     useEffect(() => {
         const unsubscribe = scrollYProgress.onChange((progress) => {
-            if (progress < 0.2) {
-                setCurrentScreenshot(0);
-                setDirection(1);
-            } else if (progress >= 0.2 && progress < 0.4) {
-                setCurrentScreenshot(1);
-                setDirection(1);
-            } else if (progress >= 0.4 && progress < 0.6) {
-                setCurrentScreenshot(2);
-                setDirection(1);
-            } else if (progress >= 0.6) {
-                setCurrentScreenshot(3);
-                setDirection(1);
-            }
+            const index = SCREEN_THRESHOLDS.findIndex((threshold) => progress < threshold);
+            const screenIndex = index === -1 ? SCREEN_THRESHOLDS.length - 1 : index;
+            setCurrentScreenshot(screenIndex);
+            setDirection(1);
+            setShowA1(progress <= 0.1);
+            setShowA2(progress > 0.25 && progress < 0.42);
+            setShowA3(progress < 0.25);
         });
+
         return () => unsubscribe();
     }, [scrollYProgress]);
 
-
-
-
-
     return (
-        <div ref={ref} style={{ height: '400vh', position: 'relative' }}>
-            <div style={{ height: '100vh', position: 'relative' }}>
+        <div ref={ref} className="h-[1500vh] relative">
+            <div className="h-[100vh] relative">
                 <motion.div
-                    style={{
-                        position: 'fixed',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        perspective: '500px',
-                        transformStyle: 'preserve-3d',
-                        willChange: 'transform',
-                    }}
-                    className="phone-container"
+                    style={{ top }}
+                    className="fixed w-[96%] ml-[2%] rounded-[52px] inset-0 flex justify-center"
+                    initial={{ background: "linear-gradient(to bottom, white, white, #ECEAF3)" }}
+                    animate={
+                        showA3
+                            ? { background: "linear-gradient(to bottom, white, white, #ECEAF3)" }
+                            : { background: "white" }
+                    }
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
                     <motion.div
-                        style={{
-                            position: 'relative',
-                            width: 430, 
-                            aspectRatio: '430 / 888',
-                            y,
-                            rotateX,
-                            scale,
-                        }}
-                        initial={{ rotateX: 50, y: 800, scale: 2.2 }}
-                        transition={{
-                            duration: 1,
-                            ease: [0.23, 1, 0.32, 1],
-                            type: 'spring',
-                            stiffness: 50,
-                            damping: 20,
-                        }}
-                    >
-                        <motion.img
-                            src="/media/ip15.svg"
-                            alt="Phone"
-                            className='relative'
-                            style={{
-                                width: '100%',
-                                height: '100%',
-                                borderRadius: 40,
-                            }}
-                        />
+                        className="absolute inset-0 bg-[url('/media/set.svg')] bg-no-repeat bg-top"
+                        initial={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                        animate={
+                            showA3
+                                ? { opacity: 1, scale: 1, filter: "blur(0px)" }
+                                : { opacity: 0, scale: 0.5, filter: "blur(10px)" }
+                        }
+                        transition={{ duration: 0.6, ease: "easeInOut" }}
+                    />
 
-                        <div
-
-                            style={{
-                                position: 'absolute',
-                                width: 'auto',
-                                height: 'auto',
-                                background: '#000000',
-                                top: 0,
-                                left: 6,
-                                right: 8,
-                                bottom: 4,
-                                borderRadius: 60,
-                                overflow: 'hidden',
-                                padding: 10
-                            }}
-
-                        >
-
-                            <motion.img
-                                src="/media/ip15cam.svg"
-                                alt="Phone"
-                                className='absolute z-[2] left-[50%] translate-x-[-50%] top-[28px] w-[25%]'
-                            />
-
-
-                            <div className='relative bg-white w-full h-full rounded-[50px]'>
-
-
-                                <AnimatePresence initial={false} custom={direction} mode="sync">
-                                    {screenshots.map((src, index) =>
-                                        index === currentScreenshot && (
-                                            <motion.img
-                                                key={index}
-                                                src={src}
-                                                style={{
-                                                    width: '100%',
-                                                    height: '100%',
-                                                    borderRadius: 50,
-                                                    position: 'absolute',
-                                                    top: 0,
-                                                    left: 0,
-                                                }}
-                                                initial={{ opacity: 0, filter: 'blur(10px)' }}
-                                                animate={{ opacity: 1, filter: 'blur(0px)' }}
-                                                exit={{ opacity: 0, filter: 'blur(10px)' }}
-                                                transition={{
-                                                    duration: 0.8,
-                                                    ease: [0.23, 1, 0.32, 1],
-                                                }}
-                                            />
-                                        )
-                                    )}
-                                </AnimatePresence>
-                            </div>
-
-                        </div>
-
-
-
-
-                    </motion.div>
+                    
+                    <AnimatedTextA1 showA1={showA1} />
+                    <AnimatedTextA2 showA2={showA2} />
+                    <AnimatedItems showA3={showA3} />
                 </motion.div>
+                <AnimatedPhone
+                    currentScreenshot={currentScreenshot}
+                    direction={direction}
+                    y={y}
+                    rotateX={rotateX}
+                    scale={scale}
+                />
             </div>
         </div>
     );
-};
-
-export default PhoneScrollAnimation;
+}
