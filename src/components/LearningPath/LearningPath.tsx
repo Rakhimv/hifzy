@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import React from 'react';
 import ButtonContent from './ButtonContent';
@@ -6,7 +6,32 @@ import IconStack from './IconStack';
 
 const LearningPath: React.FC = () => {
     const [activeSection, setActiveSection] = useState(0);
-    const [expandedButtons, setExpandedButtons] = useState<Set<number>>(new Set([0]));
+    const [expandedButtons, setExpandedButtons] = useState<Set<number>>(new Set());
+    const [isVisible, setIsVisible] = useState(false);
+    const [hasAnimated, setHasAnimated] = useState(false);
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting && !hasAnimated) {
+                    setIsVisible(true);
+                    setHasAnimated(true);
+                }
+            },
+            { threshold: 0.3 }
+        );
+
+        if (containerRef.current) {
+            observer.observe(containerRef.current);
+        }
+
+        return () => {
+            if (containerRef.current) {
+                observer.unobserve(containerRef.current);
+            }
+        };
+    }, [hasAnimated]);
 
     const iconData = {
         gamification: [
@@ -34,6 +59,9 @@ const LearningPath: React.FC = () => {
             description: 'Progress, educational games, and the best memorization formats',
             image: '/media/screen1.png',
             icons: <IconStack icons={iconData.gamification} />,
+            initial: {opacity: .3, y: 130},
+            animate: {opacity: 1, y: 0},
+            transition: {duration: 0.5},
             content: (
                 <div className="w-full relative">
                     <img src='/media/learning/steps/content.svg' />
@@ -77,6 +105,9 @@ const LearningPath: React.FC = () => {
             description: 'Advanced memorization techniques and cognitive enhancement',
             image: '/media/screen2.png',
             icons: <IconStack icons={iconData.deepLearning} />,
+            initial: {opacity: .3, scale: .8},
+            animate: {opacity: 1, scale: 1},
+            transition: {duration: 0.5, delay: .3},
             content: (
                 <div className="w-full flex justify-center">
                     <div className='grid grid-cols-3 grid-rows-3 w-full max-w-[562px] gap-[32px] rotate-[3deg]'>
@@ -115,6 +146,9 @@ const LearningPath: React.FC = () => {
             description: 'Intelligent assistance and personalized learning paths',
             image: '/media/screen3.png',
             icons: <IconStack icons={iconData.aiTools} />,
+            initial: {opacity: .3, y: -130},
+            animate: {opacity: 1, y: 0},
+            transition: {duration: 0.5},
             content: (
                 <div className="w-full flex items-center justify-center relative">
                     <motion.img
@@ -177,12 +211,17 @@ const LearningPath: React.FC = () => {
     };
 
     return (
-        <div className="w-full h-screen bg-gradient-to-b from-[#FFFFFF] to-[#EEF0F6] flex items-center justify-center relative z-10">
+        <div ref={containerRef} className="w-full h-screen bg-gradient-to-b from-[#FFFFFF] to-[#EEF0F6] flex items-center justify-center relative z-10">
             <div className='w-full h-[200px] bg-gradient-to-b from-transparent to-white absolute bottom-full left-0' />
             <div className="w-full max-w-[1920px] py-[100px]  mx-auto flex items-center justify-between">
                 <div className="flex mx-[120px] justify-between">
                     <div className="relative flex items-center gap-[40px]">
-                        <div className="flex flex-col gap-[20px] min-w-[60px]">
+                        <motion.div 
+                            className="flex flex-col gap-[20px] min-w-[60px]"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                            transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+                        >
                             <motion.button
                                 onClick={prevSection}
                                 disabled={activeSection === 0}
@@ -201,17 +240,28 @@ const LearningPath: React.FC = () => {
                             >
                                 <img src="/media/array.svg" className="w-[24px] h-[24px]" alt="Next" />
                             </motion.button>
-                        </div>
-                        <div className="flex flex-col gap-[20px] w-[500px]">
+                        </motion.div>
+                        <div className="flex flex-col gap-[20px] w-[500px] relative">
                             {buttons.map((button, index) => (
-                                <ButtonContent
+                                <motion.div
                                     key={button.id}
-                                    button={button}
-                                    index={index}
-                                    isActive={activeSection === index}
-                                    isExpanded={expandedButtons.has(index)}
-                                    toggleButton={toggleButton}
-                                />
+                                    initial={button.initial}
+                                    animate={button.animate}
+                                    style={{transformOrigin: "center center"}}
+                                    transition={{
+                                        ...button.transition,
+                                        delay: 0,
+                                        ease: [0.25, 0.46, 0.45, 0.94]
+                                    }}
+                                >
+                                    <ButtonContent
+                                        button={button}
+                                        index={index}
+                                        isActive={activeSection === index}
+                                        isExpanded={expandedButtons.has(index)}
+                                        toggleButton={toggleButton}
+                                    />
+                                </motion.div>
                             ))}
                         </div>
                     </div>

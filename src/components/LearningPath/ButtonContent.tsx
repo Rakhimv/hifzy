@@ -9,6 +9,9 @@ interface ButtonContent {
     image: string;
     icons: React.ReactNode;
     content: React.ReactNode;
+    initial: any,
+    animate: any,
+    transition: any,
 }
 
 
@@ -40,7 +43,11 @@ const ButtonContent: React.FC<ButtonContentProps> = ({ button, index, isExpanded
         >
 
             <div className="relative w-full min-w-max flex flex-col items-center p-[32px]">
-                <div className='flex w-full items-center justify-between gap-[16px]'>
+                <motion.div 
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                transition={{duration: 0.3, delay: 0.3}}
+                className='flex w-full items-center justify-between gap-[16px]'>
                     <h3 className="text-[28px] text-primary font-medium">{button.title}</h3>
                     <motion.button
                         onClick={() => toggleButton(index)}
@@ -58,7 +65,7 @@ const ButtonContent: React.FC<ButtonContentProps> = ({ button, index, isExpanded
                         left-[50%] translate-x-[-50%] rounded-[3px]' />
                     </motion.button>
 
-                </div>
+                </motion.div>
 
 
 
