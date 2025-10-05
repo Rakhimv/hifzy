@@ -61,7 +61,7 @@ const LearningPath: React.FC = () => {
             icons: <IconStack icons={iconData.gamification} />,
             initial: {opacity: .3, y: 130},
             animate: {opacity: 1, y: 0},
-            transition: {duration: 0.5},
+            transition: {duration: 0.5, delay: 0.3},
             content: (
                 <div className="w-full relative">
                     <img src='/media/learning/steps/content.svg' />
@@ -107,7 +107,7 @@ const LearningPath: React.FC = () => {
             icons: <IconStack icons={iconData.deepLearning} />,
             initial: {opacity: .3, scale: .8},
             animate: {opacity: 1, scale: 1},
-            transition: {duration: 0.5, delay: .3},
+            transition: {duration: 0.5, delay: 0.4},
             content: (
                 <div className="w-full flex justify-center">
                     <div className='grid grid-cols-3 grid-rows-3 w-full max-w-[562px] gap-[32px] rotate-[3deg]'>
@@ -148,7 +148,7 @@ const LearningPath: React.FC = () => {
             icons: <IconStack icons={iconData.aiTools} />,
             initial: {opacity: .3, y: -130},
             animate: {opacity: 1, y: 0},
-            transition: {duration: 0.5},
+            transition: {duration: 0.5, delay: 0.3},
             content: (
                 <div className="w-full flex items-center justify-center relative">
                     <motion.img
@@ -220,7 +220,7 @@ const LearningPath: React.FC = () => {
                             className="flex flex-col gap-[20px] min-w-[60px]"
                             initial={{ opacity: 0, x: -20 }}
                             animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                            transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+                            transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
                         >
                             <motion.button
                                 onClick={prevSection}
@@ -246,11 +246,11 @@ const LearningPath: React.FC = () => {
                                 <motion.div
                                     key={button.id}
                                     initial={button.initial}
-                                    animate={button.animate}
-                                    style={{transformOrigin: "center center"}}
+                                    animate={isVisible ? button.animate : button.initial}
+                                    style={{transformOrigin: "left center"}}
                                     transition={{
                                         ...button.transition,
-                                        delay: 0,
+                                    
                                         ease: [0.25, 0.46, 0.45, 0.94]
                                     }}
                                 >
@@ -272,7 +272,7 @@ const LearningPath: React.FC = () => {
                             <motion.div
                                 key={activeSection}
                                 initial={{ x: 300, scale: 0.8, opacity: 0 }}
-                                animate={{ x: 0, scale: 1, opacity: 1 }}
+                                animate={isVisible ? { x: 0, scale: 1, opacity: 1 } : { x: 300, scale: 0.8, opacity: 0 }}
                                 exit={{ x: -300, scale: 0.8, opacity: 0 }}
                                 transition={{ duration: 0.5, ease: 'easeOut' }}
                                 className="absolute inset-0 flex items-center justify-center"

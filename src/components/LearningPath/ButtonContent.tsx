@@ -46,7 +46,7 @@ const ButtonContent: React.FC<ButtonContentProps> = ({ button, index, isExpanded
                 <motion.div 
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
-                transition={{duration: 0.3, delay: 0.3}}
+                transition={{duration: 0.3, delay: 0.6}}
                 className='flex w-full items-center justify-between gap-[16px]'>
                     <h3 className="text-[28px] text-primary font-medium">{button.title}</h3>
                     <motion.button
