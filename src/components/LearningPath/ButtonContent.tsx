@@ -20,7 +20,7 @@ interface ButtonContentProps {
     toggleButton: (index: number) => void;
 }
 
-const ButtonContent: React.FC<ButtonContentProps> = ({ button, index, isActive, isExpanded, toggleButton }) => {
+const ButtonContent: React.FC<ButtonContentProps> = ({ button, index, isExpanded, toggleButton }) => {
     return (
         <motion.div
             className={`max-w-[457px] relative overflow-hidden rounded-[40px] bg-bg1`}
