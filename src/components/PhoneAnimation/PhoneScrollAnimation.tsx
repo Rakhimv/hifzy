@@ -77,7 +77,7 @@ export default function PhoneScrollAnimation() {
     }, [scrollYProgress]);
 
     return (
-        <div ref={ref} className="h-[750vh]  relative">
+        <div ref={ref} className="h-[800vh]  relative">
             <div className="h-[100vh] sticky top-0">
                 <motion.div
                     style={{ top }}
