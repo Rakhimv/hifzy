@@ -6,7 +6,7 @@ import { AnimatedTextA2 } from './AnimTextA2';
 import { AnimatedPhone } from './AnimPhone';
 import { AnimatedItems } from './AnimatedItems';
 import { SideBlocks } from './SideBlocks';
-import { motion } from 'framer-motion';
+import { motion, useTransform } from 'framer-motion';
 
 export const SCREENSHOTS = [
     '/media/screen1.png',
@@ -15,13 +15,12 @@ export const SCREENSHOTS = [
     '/media/screen4.png',
 ];
 
-export const SCREEN_THRESHOLDS = [0.6, 0.75, 0.90, 1];
+export const SCREEN_THRESHOLDS = [0.5, 0.63, 0.75, 0.9];
 
 
 
 
 export default function PhoneScrollAnimation() {
-
 
     const ref = useRef<HTMLDivElement>(null);
     const [currentScreenshot, setCurrentScreenshot] = useState(0);
@@ -32,9 +31,12 @@ export default function PhoneScrollAnimation() {
     const [currentProgress, setCurrentProgress] = useState(0);
 
     const { scrollYProgress, rotateX, y, scale, top } = useScrollProgress(ref);
+    const endY = useTransform(scrollYProgress, [0.9, 1], [0, -100]);
+    const endOpacity = useTransform(scrollYProgress, [0.9, 1], [1, 0]);
 
     useEffect(() => {
         const lenis = new Lenis({
+            lerp: 0.05,
             duration: 1.2,
             easing: (t) => 1 - Math.pow(1 - t, 3),
             smoothWheel: true,
@@ -59,16 +61,16 @@ export default function PhoneScrollAnimation() {
             const screenIndex = index === -1 ? SCREEN_THRESHOLDS.length - 1 : index;
             setCurrentScreenshot(screenIndex);
             setDirection(1);
-            setShowA1(progress <= 0.1);
-            setShowA2(progress > 0.25 && progress < 0.42);
-            setShowA3(progress < 0.25);
+            setShowA1(progress <= 0.08);
+            setShowA2(progress > 0.08 && progress < 0.3);
+            setShowA3(progress <= 0.08);
         });
 
         return () => unsubscribe();
     }, [scrollYProgress]);
 
     return (
-        <div ref={ref} className="h-[1500vh]  relative">
+        <div ref={ref} className="h-[750vh]  relative">
             <div className="h-[100vh] sticky top-0">
                 <motion.div
                     style={{ top }}
@@ -105,15 +107,21 @@ export default function PhoneScrollAnimation() {
                     y={y}
                     rotateX={rotateX}
                     scale={scale}
+                    endY={endY}
+                    endOpacity={endOpacity}
                 />
-                <div className="w-full flex justify-center">
+                <motion.div
+                    // initial={{ y: 0, opacity: 1 }}
+                    // style={{ y: endY, opacity: endOpacity }}
+                    // transition={{ duration: 2 }}
+                    className="w-full flex justify-center">
                     <div className="relative max-w-[1920px] w-full">
                         <SideBlocks
                             scrollProgress={currentProgress}
                             currentScreenshot={currentScreenshot}
                         />
                     </div>
-                </div>
+                </motion.div>
             </div>
         </div>
     );

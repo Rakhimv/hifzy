@@ -6,8 +6,8 @@ import AiPractice from "../components/LearningPath/AiPractice"
 
 const Home: React.FC = () => {
     return (
-        <div className="w-full flex justify-center overflow-x-hidden">
-            <div className="w-full relative overflow-hidden">
+        <div className="w-full flex justify-center">
+            <div className="w-full relative">
                 <Header />
                 <PhoneScrollAnimation />
                 <LearningPath />

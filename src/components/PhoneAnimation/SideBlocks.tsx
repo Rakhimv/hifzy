@@ -3,15 +3,16 @@ import { AnimatePresence, motion } from "framer-motion";
 type SideBlocksProps = {
     currentScreenshot: number;
     scrollProgress: number;
+    style?: any
 };
 
-export const SideBlocks = ({ currentScreenshot, scrollProgress }: SideBlocksProps) => {
+export const SideBlocks = ({ currentScreenshot, scrollProgress, style }: SideBlocksProps) => {
     const blocks = [
         {
             id: 0,
             side: "left",
             top: "20%",
-            minProgress: 0.4,
+            minProgress: 0.3,
             img: "/media/popups/popup1.png",
             topic: "Science",
             title: "Effective Methods",
@@ -53,7 +54,7 @@ export const SideBlocks = ({ currentScreenshot, scrollProgress }: SideBlocksProp
         <>
             {blocks.map((block) => {
                 const isVisible =
-                    currentScreenshot === block.id && scrollProgress >= block.minProgress;
+                    currentScreenshot === block.id && scrollProgress >= block.minProgress && scrollProgress < 0.9;
 
                 return (
                     <AnimatePresence>
@@ -64,13 +65,14 @@ export const SideBlocks = ({ currentScreenshot, scrollProgress }: SideBlocksProp
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{
                                     opacity: 0, y: -50, transition: {
-                                        duration: 0.9,
+                                        duration: 0.6,
                                         ease: "easeInOut"
                                     }
                                 }}
+
                                 transition={{ duration: 0.6, ease: "easeInOut" }}
                                 className={`  fixed ${block.side === "left" ? "left-[calc(50%-960px+2%)]" : "right-[calc(50%-960px+2%)]"}  bg-[#FBFBFC] flex items-center p-[20px] rounded-[30px] gap-[24px]`}
-                                style={{ top: block.top }}
+                                style={{ top: block.top, ...style }}
                             >
                                 <img src={block.img} alt={block.title} className="w-[240px]" />
                                 <div className={`flex flex-col w-[325px] ${block.side === "right" && "items-end"}`}>

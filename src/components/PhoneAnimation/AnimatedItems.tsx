@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-export const AnimatedItems = ({ showA3 }: { showA3: boolean }) => (
+export const AnimatedItems = ({ showA3 }:any) => (
   <motion.div
     className="absolute z-[2] top-[5%] w-[80%] left-[50%] translate-x-[-50%]"
     initial={{ opacity: 1, scale: 1, filter: "blur(0px)" }}

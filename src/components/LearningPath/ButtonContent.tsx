@@ -26,7 +26,7 @@ interface ButtonContentProps {
 const ButtonContent: React.FC<ButtonContentProps> = ({ button, index, isExpanded, toggleButton }) => {
     return (
         <motion.div
-            className={`max-w-[457px] relative overflow-hidden rounded-[40px] bg-bg1`}
+            className={`max-w-[457px] relative overflow-hidden rounded-[40px] bg-[#35323B0D]`}
             layout
             initial={{ width: "max-content" }}
             animate={{

@@ -11,19 +11,19 @@ type Config = {
 const CONFIGS: Record<number, Config> = {
     1536: {
         rotateX: [55, 0],
-        rawY: [800, 365, 365, 365, 0],
+        rawY: [800, 365, 365, 0],
         scale: [2, 1],
         top: [258, 148]
     },
     1700: {
         rotateX: [55, 0],
-        rawY: [780, 320, 320, 320, 0],
+        rawY: [780, 320, 320, 0],
         scale: [2.2, 1],
         top: [258, 148]
     },
     1920: {
         rotateX: [55, 0],
-        rawY: [700, 250, 250, 250, 0],
+        rawY: [700, 240, 240, 0],
         scale: [2.2, 1],
         top: [230, 148]
     },
@@ -58,10 +58,10 @@ export const useScrollProgress = (ref: RefObject<HTMLDivElement | null>) => {
 
     const progress = scrollYProgress as MotionValue<number>;
 
-    const rotateX = useTransform(progress, [0, 0.25], config.rotateX);
-    const rawY = useTransform(progress, [0, 0.2, 0.25, 0.4, 0.4], config.rawY);
+    const rotateX = useTransform(progress, [0, 0.08], config.rotateX);
+    const rawY = useTransform(progress, [0, 0.08, 0.3, 0.3], config.rawY);
     const y = useSpring(rawY, { stiffness: 60, damping: 20, mass: 1 });
-    const scale = useTransform(progress, [0, 0.2], config.scale);
+    const scale = useTransform(progress, [0, 0.08], config.scale);
     const rawTop = useTransform(scrollYProgress, [0, 0.02], config.top);
     const top = useSpring(rawTop, { stiffness: 60, damping: 20, mass: 1 });
     return {
