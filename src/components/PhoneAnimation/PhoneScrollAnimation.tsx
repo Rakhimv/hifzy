@@ -5,6 +5,7 @@ import { AnimatedTextA1 } from './AnimTextA1';
 import { AnimatedTextA2 } from './AnimTextA2';
 import { AnimatedPhone } from './AnimPhone';
 import { AnimatedItems } from './AnimatedItems';
+import { SideBlocks } from './SideBlocks';
 import { motion } from 'framer-motion';
 
 export const SCREENSHOTS = [
@@ -28,6 +29,7 @@ export default function PhoneScrollAnimation() {
     const [showA1, setShowA1] = useState(true);
     const [showA2, setShowA2] = useState(false);
     const [showA3, setShowA3] = useState(true);
+    const [currentProgress, setCurrentProgress] = useState(0);
 
     const { scrollYProgress, rotateX, y, scale, top } = useScrollProgress(ref);
 
@@ -52,6 +54,7 @@ export default function PhoneScrollAnimation() {
 
     useEffect(() => {
         const unsubscribe = scrollYProgress.onChange((progress) => {
+            setCurrentProgress(progress);
             const index = SCREEN_THRESHOLDS.findIndex((threshold) => progress < threshold);
             const screenIndex = index === -1 ? SCREEN_THRESHOLDS.length - 1 : index;
             setCurrentScreenshot(screenIndex);
@@ -66,7 +69,7 @@ export default function PhoneScrollAnimation() {
 
     return (
         <div ref={ref} className="h-[1500vh] relative">
-            <div className="h-[100vh] relative">
+            <div className="h-[100vh] sticky top-0">    
                 <motion.div
                     style={{ top }}
                     className="fixed w-[96%] ml-[2%] rounded-[52px] inset-0 flex justify-center"
@@ -100,6 +103,11 @@ export default function PhoneScrollAnimation() {
                     y={y}
                     rotateX={rotateX}
                     scale={scale}
+                />
+                
+                <SideBlocks
+                    scrollProgress={currentProgress}
+                    currentScreenshot={currentScreenshot}
                 />
             </div>
         </div>

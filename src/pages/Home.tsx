@@ -1,16 +1,15 @@
-import PhoneScrollAnimation from "../components/Hero/PhoneScrollAnimation"
+import PhoneScrollAnimation from "../components/PhoneAnimation/PhoneScrollAnimation"
 import Header from "../components/Header"
-import Hero from "../components/Hero/Hero"
 import InnerW from "../hooks/innerWidth"
+import LearningPath from "../components/LearningPath/LearningPath"
 
 const Home: React.FC = () => {
     return (
         <div>
             <Header />
-            <Hero />
             <PhoneScrollAnimation />
-
-           <InnerW />
+            <LearningPath />
+            <InnerW />
         </div>
     )
 }

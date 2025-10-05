@@ -1,0 +1,92 @@
+import { AnimatePresence, motion } from "framer-motion";
+
+type SideBlocksProps = {
+    currentScreenshot: number;
+    scrollProgress: number;
+};
+
+export const SideBlocks = ({ currentScreenshot, scrollProgress }: SideBlocksProps) => {
+    const blocks = [
+        {
+            id: 0,
+            side: "left",
+            top: "20%",
+            minProgress: 0.4,
+            img: "/media/popups/popup1.png",
+            topic: "Science",
+            title: "Effective Methods",
+            sub: "Memorize the surah according to the verses",
+        },
+        {
+            id: 1,
+            side: "right",
+            top: "32%",
+            minProgress: 0,
+            img: "/media/popups/popup2.svg",
+            topic: "Gamification",
+            title: "User motivation",
+            sub: "Leaderboards, notifications and streaks",
+        },
+        {
+            id: 2,
+            side: "left",
+            top: "44%",
+            minProgress: 0,
+            img: "/media/popups/popup3.png",
+            topic: "Quizes",
+            title: "Memory games",
+            sub: "Games for Practicing Ayahs",
+        },
+        {
+            id: 3,
+            side: "right",
+            top: "55%",
+            minProgress: 0,
+            img: "/media/popups/popup4.png",
+            topic: "Listening",
+            title: "Step by step",
+            sub: "Word by word Ayahs Learning",
+        },
+    ];
+
+    return (
+        <>
+            {blocks.map((block) => {
+                const isVisible =
+                    currentScreenshot === block.id && scrollProgress >= block.minProgress;
+
+                return (
+                    <AnimatePresence>
+                        {isVisible && (
+                            <motion.div
+                                key={block.id}
+                                initial={{ opacity: 0, y: 50 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{
+                                    opacity: 0, y: -50, transition: {
+                                        duration: 0.9,
+                                        ease: "easeInOut"
+                                    }
+                                }}
+                                transition={{ duration: 0.6, ease: "easeInOut" }}
+                                className={`fixed ${block.side === "left" ? "left-[2%]" : "flex-row-reverse right-[2%]"
+                                    } bg-[#FBFBFC] flex items-center p-[20px] rounded-[30px] gap-[24px]`}
+                                style={{ top: block.top }}
+                            >
+                                <img src={block.img} alt={block.title} className="w-[240px]" />
+                                <div className={`flex flex-col w-[325px] ${block.side === "right" && "items-end"}`}>
+                                    <span className="px-[16px] w-max py-[12px] border-[2px] border-[#E4E4E4] rounded-[20px] text-[24px]">
+                                        {block.topic}
+                                    </span>
+                                    <h3 className={`text-primary text-[40px] font-semibold ${block.side === "right" && "text-right"}`}>{block.title}</h3>
+                                    <p className={`text-op2 text-[24px] font-semibold ${block.side === "right" && "text-right"}`}>{block.sub}</p>
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+
+                );
+            })}
+        </>
+    );
+};

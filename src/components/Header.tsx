@@ -32,7 +32,7 @@ const Header = () => {
                 <div className="flex gap-[16px]">
 
                     <button className="px-[24px] h-[68px] py-[20px] rounded-[20px] font-medium cursor-pointer bg-secondary text-primary text-2xl outline-none flex">
-                        Hifzy for IOS
+                        Hifzy for Android
                         <img src="/media/googleplay.svg" className="ml-[12px] w-[24px]" />
                     </button>
 

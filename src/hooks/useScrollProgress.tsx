@@ -49,7 +49,7 @@ export const useScrollProgress = (ref: RefObject<HTMLDivElement | null>) => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const config = getConfigByResolution(width) ?? CONFIGS[1224];
+    const config = getConfigByResolution(width) ?? CONFIGS[1536];
 
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -59,7 +59,7 @@ export const useScrollProgress = (ref: RefObject<HTMLDivElement | null>) => {
     const progress = scrollYProgress as MotionValue<number>;
 
     const rotateX = useTransform(progress, [0, 0.2, 0.4], config.rotateX);
-    const rawY = useTransform(progress, [0, 0.2, 0.3, 0.4, 0.45], config.rawY);
+    const rawY = useTransform(progress, [0, 0.2, 0.25, 0.4, 0.4], config.rawY);
     const y = useSpring(rawY, { stiffness: 60, damping: 20, mass: 1 });
     const scale = useTransform(progress, [0, 0.2], config.scale);
     const rawTop = useTransform(scrollYProgress, [0, 0.02], config.top);
