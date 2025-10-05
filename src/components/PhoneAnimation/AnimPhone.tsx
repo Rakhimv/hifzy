@@ -1,9 +1,68 @@
-import { motion, AnimatePresence, useTransform } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { SCREENSHOTS } from './PhoneScrollAnimation';
+import { useEffect, useState } from 'react';
 
-export const AnimatedPhone = ({ currentScreenshot, direction, y, rotateX, scale, endY, endOpacity }: any) => {
 
-  const combinedY = useTransform([y, endY], ([y1, y2]: number[]) => y1 + y2);
+
+
+
+
+
+export const AnimatedPhone = ({ currentScreenshot, direction, anim, scrollProgress }: any) => {
+
+
+
+
+  type PhoneConfig = {
+    initial: any;
+    anim1: any;
+    anim2: any;
+    exit: any;
+  };
+
+  const CONFIGS: Record<number, PhoneConfig> = {
+    1536: {
+      initial: { y: 700, rotateX: 55, scale: 1.8 },
+      anim1: { rotateX: 0, scale: 1, y: 270 },
+      anim2: { rotateX: 0, scale: 1, y: 0 },
+      exit: { rotateX: 0, scale: 1, opacity: 0, y: -250 },
+    },
+    1700: {
+      initial: { y: 700, rotateX: 55, scale: 2 },
+      anim1: { rotateX: 0, scale: 1, y: 270 },
+      anim2: { rotateX: 0, scale: 1, y: 0 },
+      exit: { rotateX: 0, scale: 1, opacity: 0, y: -300 },
+    },
+    1920: {
+      initial: { y: 700, rotateX: 55, scale: 2.2 },
+      anim1: { rotateX: 0, scale: 1, y: 270 },
+      anim2: { rotateX: 0, scale: 1, y: 0 },
+      exit: { rotateX: 0, scale: 1, opacity: 0, y: -400 },
+    },
+  };
+
+  const getConfigByResolution = (width: number) => {
+    const thresholds = Object.keys(CONFIGS)
+      .map(Number)
+      .sort((a, b) => b - a);
+    for (const thresh of thresholds) {
+      if (width >= thresh) return CONFIGS[thresh];
+    }
+    return CONFIGS[1536]; // fallback
+  };
+
+
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const deviceConfig = getConfigByResolution(width);
+
+
 
   return (
     <motion.div
@@ -15,16 +74,24 @@ export const AnimatedPhone = ({ currentScreenshot, direction, y, rotateX, scale,
         perspective: '500px',
         transformStyle: 'preserve-3d',
         willChange: 'transform',
-        opacity: endOpacity,
       }}
       className="phone-container pointer-events-none"
     >
       <motion.div
         className="z-10 relative w-[350px] aspect-[430/888]"
-        style={{ y: combinedY, rotateX, scale }}
-        //   initial={{ rotateX: 60, y: 800, scale: 2.2 }}
-        transition={{ duration: 1, ease: [0.23, 1, 0.32, 1], type: 'spring', stiffness: 50, damping: 20 }}
+        initial={deviceConfig.initial}
+        animate={
+          scrollProgress > 0.9
+            ? deviceConfig.exit
+            : anim === 1
+              ? deviceConfig.anim1
+              : anim === 2
+                ? deviceConfig.anim2
+                : deviceConfig.initial
+        }
+        transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
       >
+
         <motion.img
           src="/media/ip15.svg"
           alt="Phone"

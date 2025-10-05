@@ -6,7 +6,7 @@ import { AnimatedTextA2 } from './AnimTextA2';
 import { AnimatedPhone } from './AnimPhone';
 import { AnimatedItems } from './AnimatedItems';
 import { SideBlocks } from './SideBlocks';
-import { motion, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export const SCREENSHOTS = [
     '/media/screen1.png',
@@ -28,11 +28,11 @@ export default function PhoneScrollAnimation() {
     const [showA1, setShowA1] = useState(true);
     const [showA2, setShowA2] = useState(false);
     const [showA3, setShowA3] = useState(true);
+    const [phoneAnim, setPhoneAnim] = useState<number>(0);
     const [currentProgress, setCurrentProgress] = useState(0);
 
-    const { scrollYProgress, rotateX, y, scale, top } = useScrollProgress(ref);
-    const endY = useTransform(scrollYProgress, [0.9, 1], [0, -100]);
-    const endOpacity = useTransform(scrollYProgress, [0.9, 1], [1, 0]);
+    const { scrollYProgress, top } = useScrollProgress(ref);
+
 
     useEffect(() => {
         const lenis = new Lenis({
@@ -64,6 +64,13 @@ export default function PhoneScrollAnimation() {
             setShowA1(progress <= 0.08);
             setShowA2(progress > 0.08 && progress < 0.2);
             setShowA3(progress <= 0.08);
+            if (progress > 0.08 && progress < 0.2) {
+                setPhoneAnim(1); 
+            } else if (progress >= 0.2) {
+                setPhoneAnim(2);
+            }  else {
+                setPhoneAnim(0);
+            }
         });
 
         return () => unsubscribe();
@@ -104,11 +111,8 @@ export default function PhoneScrollAnimation() {
                 <AnimatedPhone
                     currentScreenshot={currentScreenshot}
                     direction={direction}
-                    y={y}
-                    rotateX={rotateX}
-                    scale={scale}
-                    endY={endY}
-                    endOpacity={endOpacity}
+                    anim={phoneAnim}
+                     scrollProgress={currentProgress}
                 />
                 <motion.div
                     // initial={{ y: 0, opacity: 1 }}
