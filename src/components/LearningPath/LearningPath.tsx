@@ -117,13 +117,21 @@ const LearningPath: React.FC = () => {
                                 className='w-full aspect-square'
                                 initial={{ opacity: 0, scale: 0.5, y: 20 }}
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                                exit={{ opacity: 0, scale: 0.5, y: -20 }}
+                                exit={{
+                                    opacity: 0, scale: 0, y: -20, transition: {
+                                        type: 'spring',
+                                        stiffness: 100,
+                                        damping: 15,
+                                        delay: 0,
+                                        duration: 0.5,
+                                    }
+                                }}
                                 transition={{
                                     type: 'spring',
                                     stiffness: 100,
                                     damping: 15,
-                                    delay: 0.1 * index,
-                                    duration: 0.4,
+                                    delay: 0.05 * index,
+                                    duration: 0.3,
                                 }}
                             >
                                 <img
@@ -275,7 +283,7 @@ const LearningPath: React.FC = () => {
                                     initial={{ x: 300, scale: 0.8, opacity: 0 }}
                                     animate={isVisible ? { x: 0, scale: 1, opacity: 1 } : { x: 300, scale: 0.8, opacity: 0 }}
                                     exit={{ x: -300, scale: 0.8, opacity: 0 }}
-                                    transition={{ duration: 0.5, ease: 'easeOut', delay: .5 }}
+                                    transition={{ duration: 0.3, ease: 'easeOut', delay: 0 }}
                                     className="absolute inset-0 flex items-center justify-center"
                                 >
                                     <div className="relative w-full h-full flex items-center justify-center">{buttons[activeSection].content}</div>
