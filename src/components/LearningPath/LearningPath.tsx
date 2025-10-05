@@ -219,7 +219,7 @@ const LearningPath: React.FC = () => {
     };
 
     return (
-        <div className='w-full relative h-[300vh]'>
+        <div className='w-full relative h-[200vh]'>
             <div ref={containerRef} className="w-full sticky top-0 h-screen bg-gradient-to-b from-[#FFFFFF] to-[#EEF0F6] flex items-center justify-center z-10">
                 <div className='w-full h-[200px] bg-gradient-to-b from-transparent to-white absolute bottom-full left-0' />
                 <div className="w-full max-w-[1920px] py-[100px]  mx-auto flex items-center justify-between">

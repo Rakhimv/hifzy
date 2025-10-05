@@ -12,7 +12,7 @@ export const SideBlocks = ({ currentScreenshot, scrollProgress, style }: SideBlo
             id: 0,
             side: "left",
             top: "20%",
-            minProgress: 0.3,
+            minProgress: 0.2,
             img: "/media/popups/popup1.png",
             topic: "Science",
             title: "Effective Methods",

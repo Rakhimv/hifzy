@@ -15,7 +15,7 @@ export const SCREENSHOTS = [
     '/media/screen4.png',
 ];
 
-export const SCREEN_THRESHOLDS = [0.5, 0.63, 0.75, 0.9];
+export const SCREEN_THRESHOLDS = [0.35, 0.50, 0.65, 0.80];
 
 
 
@@ -62,7 +62,7 @@ export default function PhoneScrollAnimation() {
             setCurrentScreenshot(screenIndex);
             setDirection(1);
             setShowA1(progress <= 0.08);
-            setShowA2(progress > 0.08 && progress < 0.3);
+            setShowA2(progress > 0.08 && progress < 0.2);
             setShowA3(progress <= 0.08);
         });
 

@@ -59,7 +59,7 @@ export const useScrollProgress = (ref: RefObject<HTMLDivElement | null>) => {
     const progress = scrollYProgress as MotionValue<number>;
 
     const rotateX = useTransform(progress, [0, 0.08], config.rotateX);
-    const rawY = useTransform(progress, [0, 0.08, 0.3, 0.3], config.rawY);
+    const rawY = useTransform(progress, [0, 0.08, 0.2, 0.2], config.rawY);
     const y = useSpring(rawY, { stiffness: 60, damping: 20, mass: 1 });
     const scale = useTransform(progress, [0, 0.08], config.scale);
     const rawTop = useTransform(scrollYProgress, [0, 0.02], config.top);
