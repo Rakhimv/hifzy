@@ -69,8 +69,7 @@ export const SideBlocks = ({ currentScreenshot, scrollProgress }: SideBlocksProp
                                     }
                                 }}
                                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                                className={`fixed ${block.side === "left" ? "left-[2%]" : "flex-row-reverse right-[2%]"
-                                    } bg-[#FBFBFC] flex items-center p-[20px] rounded-[30px] gap-[24px]`}
+                                className={`  fixed ${block.side === "left" ? "left-[calc(50%-960px+2%)]" : "right-[calc(50%-960px+2%)]"}  bg-[#FBFBFC] flex items-center p-[20px] rounded-[30px] gap-[24px]`}
                                 style={{ top: block.top }}
                             >
                                 <img src={block.img} alt={block.title} className="w-[240px]" />

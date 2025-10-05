@@ -86,7 +86,7 @@ const ButtonContent: React.FC<ButtonContentProps> = ({ button, index, isExpanded
                                     y: 10,
                                     transition: { duration: 0.1, ease: "easeInOut", delay: 0 },
                                 }}
-                                className="absolute top-[32px] w-full overflow-hidden"
+                                className="absolute top-[22px] w-full"
                             >
                                 <motion.p
                                     className="text-op0 text-[24px] w-[95%] font-medium"

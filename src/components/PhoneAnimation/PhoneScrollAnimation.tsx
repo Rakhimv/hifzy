@@ -68,8 +68,8 @@ export default function PhoneScrollAnimation() {
     }, [scrollYProgress]);
 
     return (
-        <div ref={ref} className="h-[1500vh] relative">
-            <div className="h-[100vh] sticky top-0">    
+        <div ref={ref} className="h-[1500vh]  relative">
+            <div className="h-[100vh] sticky top-0">
                 <motion.div
                     style={{ top }}
                     className="fixed w-[96%] ml-[2%] rounded-[52px] inset-0 flex justify-center"
@@ -92,10 +92,12 @@ export default function PhoneScrollAnimation() {
                         transition={{ duration: 0.6, ease: "easeInOut" }}
                     />
 
-                    
-                    <AnimatedTextA1 showA1={showA1} />
-                    <AnimatedTextA2 showA2={showA2} />
-                    <AnimatedItems showA3={showA3} />
+
+                    <div className='max-w-[1920px] w-full relative'>
+                        <AnimatedTextA1 showA1={showA1} />
+                        <AnimatedTextA2 showA2={showA2} />
+                        <AnimatedItems showA3={showA3} />
+                    </div>
                 </motion.div>
                 <AnimatedPhone
                     currentScreenshot={currentScreenshot}
@@ -104,11 +106,14 @@ export default function PhoneScrollAnimation() {
                     rotateX={rotateX}
                     scale={scale}
                 />
-                
-                <SideBlocks
-                    scrollProgress={currentProgress}
-                    currentScreenshot={currentScreenshot}
-                />
+                <div className="w-full flex justify-center">
+                    <div className="relative max-w-[1920px] w-full">
+                        <SideBlocks
+                            scrollProgress={currentProgress}
+                            currentScreenshot={currentScreenshot}
+                        />
+                    </div>
+                </div>
             </div>
         </div>
     );
