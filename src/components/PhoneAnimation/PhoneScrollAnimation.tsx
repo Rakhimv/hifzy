@@ -35,6 +35,19 @@ export default function PhoneScrollAnimation() {
 
 
     useEffect(() => {
+       
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+
+        setCurrentScreenshot(0);
+        setDirection(1);
+        setShowA1(true);
+        setShowA2(false);
+        setShowA3(true);
+        setPhoneAnim(0);
+        setCurrentProgress(0);
+
         const lenis = new Lenis({
             lerp: 0.05,
             duration: 1.2,

@@ -2,7 +2,7 @@ import PhoneScrollAnimation from "../components/PhoneAnimation/PhoneScrollAnimat
 import Header from "../components/Header"
 import InnerW from "../hooks/innerWidth"
 import LearningPath from "../components/LearningPath/LearningPath"
-import AiPractice from "../components/LearningPath/AiPractice"
+import AiPractice from "../components/AiPractice/AiPractice"
 
 const Home: React.FC = () => {
     return (

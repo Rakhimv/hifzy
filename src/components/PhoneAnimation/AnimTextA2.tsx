@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-export const AnimatedTextA2 = ({ showA2 }: {showA2: boolean}) => (
+export const AnimatedTextA2 = ({ showA2 }: { showA2: boolean }) => (
   <motion.div
     className="absolute z-[2] left-[50%] translate-x-[-50%] top-[50%] -translate-y-[160%] flex flex-col items-center "
     initial={{ opacity: 0, y: 0 }}

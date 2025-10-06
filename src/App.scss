@@ -1,11 +1,18 @@
-
 * {
   box-sizing: border-box;
   font-family: "SF Pro Display";
 }
 
 body {
-    background-color: #ffffff;
-    min-height: 100vh;
+  background-color: #ffffff;
+  min-height: 100vh;
 }
 
+.textanim {
+  background: linear-gradient(to right, #44474E 50%, rgba(0, 0, 0, 0.1) 50%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
