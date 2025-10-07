@@ -7,6 +7,7 @@ import { AnimatedPhone } from './AnimPhone';
 import { AnimatedItems } from './AnimatedItems';
 import { SideBlocks } from './SideBlocks';
 import { motion } from 'framer-motion';
+import { useScroll } from '../../contexts/ScrollContext';
 
 export const SCREENSHOTS = [
     '/media/screen1.png',
@@ -21,7 +22,7 @@ export const SCREEN_THRESHOLDS = [0.35, 0.50, 0.65, 0.80];
 
 
 export default function PhoneScrollAnimation() {
-
+    const lenisRef = useRef<Lenis | null>(null);
     const ref = useRef<HTMLDivElement>(null);
     const [currentScreenshot, setCurrentScreenshot] = useState(0);
     const [direction, setDirection] = useState(1);
@@ -30,12 +31,11 @@ export default function PhoneScrollAnimation() {
     const [showA3, setShowA3] = useState(true);
     const [phoneAnim, setPhoneAnim] = useState<number>(0);
     const [currentProgress, setCurrentProgress] = useState(0);
-
+    const { setLenis } = useScroll();
     const { scrollYProgress, top } = useScrollProgress(ref);
 
 
     useEffect(() => {
-       
         window.scrollTo(0, 0);
         document.documentElement.scrollTop = 0;
         document.body.scrollTop = 0;
@@ -55,6 +55,9 @@ export default function PhoneScrollAnimation() {
             smoothWheel: true,
         });
 
+        lenisRef.current = lenis; 
+        setLenis(lenis);
+
         const raf = (time: any) => {
             lenis.raf(time);
             requestAnimationFrame(raf);
@@ -62,8 +65,7 @@ export default function PhoneScrollAnimation() {
         requestAnimationFrame(raf);
 
         return () => lenis.destroy();
-    }, []);
-
+    }, [setLenis]);
 
 
 
@@ -78,10 +80,10 @@ export default function PhoneScrollAnimation() {
             setShowA2(progress > 0.08 && progress < 0.2);
             setShowA3(progress <= 0.08);
             if (progress > 0.08 && progress < 0.2) {
-                setPhoneAnim(1); 
+                setPhoneAnim(1);
             } else if (progress >= 0.2) {
                 setPhoneAnim(2);
-            }  else {
+            } else {
                 setPhoneAnim(0);
             }
         });
@@ -125,7 +127,7 @@ export default function PhoneScrollAnimation() {
                     currentScreenshot={currentScreenshot}
                     direction={direction}
                     anim={phoneAnim}
-                     scrollProgress={currentProgress}
+                    scrollProgress={currentProgress}
                 />
                 <motion.div
                     // initial={{ y: 0, opacity: 1 }}

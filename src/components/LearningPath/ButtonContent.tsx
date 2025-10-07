@@ -43,17 +43,21 @@ const ButtonContent: React.FC<ButtonContentProps> = ({ button, index, isExpanded
         >
 
             <div className="relative w-full min-w-max flex flex-col items-center p-[32px]">
-                <motion.div 
-                initial={{opacity: 0}}
-                animate={{opacity: 1}}
-                transition={{duration: 0.3, delay: 0.6}}
-                className='flex w-full items-center justify-between gap-[16px]'>
-                    <h3 className="text-[28px] text-primary font-medium">{button.title}</h3>
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.6 }}
+                    className='flex w-full items-center justify-start '>
+
                     <motion.button
                         onClick={() => toggleButton(index)}
-                        className={`relative w-[36px] h-[36px] border-2 border-[#E5E4E7] rounded-full cursor-pointer`}
+                        className={`relative w-[36px] mr-[16px] h-[36px] border-2 border-[#E5E4E7] rounded-full cursor-pointer`}
                         animate={{
                             transform: isExpanded ? "rotate(45deg)" : "rotate(0deg)",
+                            opacity: isExpanded ? 0 : 1,
+                            width: isExpanded ? 0 : 36,
+                            marginRight: isExpanded ? 0 : 16,
+                            visibility: isExpanded ? "hidden" : "visible",
                             transition: { duration: 0.4 }
                         }}
                         whileHover={{ scale: 1.05 }}
@@ -64,7 +68,7 @@ const ButtonContent: React.FC<ButtonContentProps> = ({ button, index, isExpanded
                         <div className='w-[15px] h-[3px] bg-[#888990] absolute
                         left-[50%] translate-x-[-50%] rounded-[3px]' />
                     </motion.button>
-
+                    <h3 className="text-[28px] text-primary font-medium">{button.title}</h3>
                 </motion.div>
 
 

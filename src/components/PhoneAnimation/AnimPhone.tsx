@@ -89,7 +89,7 @@ export const AnimatedPhone = ({ currentScreenshot, direction, anim, scrollProgre
                 ? deviceConfig.anim2
                 : deviceConfig.initial
         }
-        transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
+        transition={{ duration: 1.5, ease: [0.23, 1, 0.32, 1] }}
       >
 
         <motion.img

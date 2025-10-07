@@ -2,6 +2,7 @@
 import './App.scss';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import { ScrollProvider } from './contexts/ScrollContext';
 
 function App() {
     // useEffect(() => {
@@ -18,9 +19,11 @@ function App() {
     // }, []);
 
     return (
-        <Routes>
-            <Route index element={<Home />} />
-        </Routes>
+        <ScrollProvider>
+            <Routes>
+                <Route index element={<Home />} />
+            </Routes>
+        </ScrollProvider>
     );
 }
 
