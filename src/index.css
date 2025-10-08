@@ -9,8 +9,6 @@
     --color-op2: #C5C3C9;
     --color-bg1: #F1F1F5;
     --color-secondary: #F9F7FA;
-
-
     --breakpoint-xs: 480px;
     --breakpoint-xsmin: 400px;
     --breakpoint-xs430: 430px;
@@ -45,7 +43,6 @@
     --breakpoint-sw: (max-width: 500px);
     --breakpoint-mb: (max-width: 425px);
 }
-
 
 @font-face {
     font-family: 'SF Pro Display';
@@ -85,9 +82,26 @@
     font-style: italic;
 }
 
+
 @font-face {
     font-family: 'SF Pro Display';
     src: url('/fonts/SF-Pro-Display-Light.otf') format('opentype');
     font-weight: 300;
     font-style: normal;
+}
+
+@media (max-width: 1024px) {
+    .mobile-menu-content {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-content {
+        display: block;
+    }
+    
+    .desktop-menu-content {
+        display: none;
+    }
 }
