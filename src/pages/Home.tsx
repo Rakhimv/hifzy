@@ -4,6 +4,7 @@ import InnerW from "../hooks/innerWidth"
 import LearningPath from "../components/LearningPath/LearningPath"
 import AiPractice from "../components/AiPractice/AiPractice"
 import FAQ from "../components/FAQ/FAQ"
+import Footer from "../components/Footer"
 
 const Home: React.FC = () => {
     return (
@@ -15,7 +16,9 @@ const Home: React.FC = () => {
                     <LearningPath />
                     <AiPractice />
                     <FAQ />
+
                 </div>
+                <Footer />
                 <InnerW />
             </div>
         </div>

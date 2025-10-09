@@ -24,16 +24,20 @@
     --breakpoint-noxs1000: (max-width: 1000px);
     --breakpoint-xs1167: 1167px;
     --breakpoint-noxs1167: (max-width: 1167px);
+    --breakpoint-xs1230: 1230px;
+    --breakpoint-noxs1230: (max-width: 1230px);
     --breakpoint-xs1350: 1350px;
     --breakpoint-noxs1350: (max-width: 1350px);
     --breakpoint-xs1500: 1500px;
     --breakpoint-noxs1500: (max-width: 1500px);
+    --breakpoint-xs1550: 1550px;
+    --breakpoint-noxs1550: (max-width: 1550px);
     --breakpoint-xs1700: 1700px;
     --breakpoint-noxs1700: (max-width: 1700px);
     --breakpoint-xs1900: 1900px;
     --breakpoint-noxs1900: (max-width: 1900px);
 
-    
+
     --breakpoint-exl: (max-width: 1535px);
     --breakpoint-xl: (max-width: 1279px);
     --breakpoint-lg: (max-width: 1024px);
@@ -43,6 +47,21 @@
     --breakpoint-sw: (max-width: 500px);
     --breakpoint-mb: (max-width: 425px);
 }
+
+
+
+
+
+@layer utilities {
+    .xs700-btn-p {
+        @apply px-[32px] py-[20px];
+    }
+}
+
+
+
+
+
 
 @font-face {
     font-family: 'SF Pro Display';
@@ -100,7 +119,7 @@
     .mobile-menu-content {
         display: block;
     }
-    
+
     .desktop-menu-content {
         display: none;
     }

@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 interface ButtonContent {
@@ -24,14 +24,66 @@ interface ButtonContentProps {
 }
 
 const ButtonContent: React.FC<ButtonContentProps> = ({ button, index, isExpanded, toggleButton }) => {
+
+
+
+
+    type AnimConfig = {
+        height1: string;
+        height2: string;
+        width: string;
+        widthX: number;
+    };
+
+    const CONFIGS: Record<number, AnimConfig> = {
+        1000: {
+            height1: '230px',
+            height2: '78px',
+            width: '380px',
+            widthX: -36
+        },
+        1500: {
+            height1: '290px',
+            height2: '106px',
+            width: '457px',
+            widthX: -50
+        },
+
+    };
+
+    const getConfigByResolution = (width: number) => {
+        const thresholds = Object.keys(CONFIGS)
+            .map(Number)
+            .sort((a, b) => b - a);
+        for (const thresh of thresholds) {
+            if (width >= thresh) return CONFIGS[thresh];
+        }
+        return CONFIGS[1500];
+    };
+
+
+    const [width, setWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    const deviceConfig = getConfigByResolution(width);
+
+
+
+
+
     return (
         <motion.div
-            className={`max-w-[457px] relative overflow-hidden rounded-[40px] bg-[#35323B0D]`}
+            className={`max-w-[350px] xs1500:max-w-[457px] relative overflow-hidden rounded-[40px] bg-[#35323B0D]`}
             layout
             initial={{ width: "max-content" }}
             animate={{
-                width: isExpanded ? '457px' : 'max-content',
-                height: isExpanded ? '300px' : '106px',
+                width: isExpanded ? deviceConfig.width : 'max-content',
+                height: isExpanded ? deviceConfig.height1 : deviceConfig.height2,
                 transition: {
                     type: 'spring',
                     stiffness: 100,
@@ -42,7 +94,7 @@ const ButtonContent: React.FC<ButtonContentProps> = ({ button, index, isExpanded
             }}
         >
 
-            <div className="relative w-full min-w-max flex flex-col items-center p-[32px]">
+            <div className="relative w-full min-w-max flex flex-col items-center p-[20px] xs1500:p-[32px]">
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -51,24 +103,29 @@ const ButtonContent: React.FC<ButtonContentProps> = ({ button, index, isExpanded
 
                     <motion.button
                         onClick={() => toggleButton(index)}
-                        className={`relative w-[36px] mr-[16px] h-[36px] border-2 border-[#E5E4E7] rounded-full cursor-pointer`}
+                        className={`relative w-[20px] h-[20px] xs1500:w-[36px] mr-[16px] xs1500:h-[36px] border-2 border-[#E5E4E7] rounded-full cursor-pointer`}
                         animate={{
                             transform: isExpanded ? "rotate(45deg)" : "rotate(0deg)",
                             opacity: isExpanded ? 0 : 1,
-                            width: isExpanded ? 0 : 36,
-                            marginRight: isExpanded ? 0 : 16,
-                            visibility: isExpanded ? "hidden" : "visible",
+                            // width: isExpanded ? 0 : 36,
+                            // marginRight: isExpanded ? 0 : 16,
+                            // visibility: isExpanded ? "hidden" : "visible",
                             transition: { duration: 0.4 }
                         }}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <div className='w-[15px] h-[3px] bg-[#888990] absolute
+                        <div className='w-[12px] h-[2px] xs1500:w-[15px] xs1500:h-[3px] bg-[#888990] absolute
                         left-[50%] translate-x-[-50%] rotate-90 rounded-[3px]' />
-                        <div className='w-[15px] h-[3px] bg-[#888990] absolute
+                        <div className='w-[12px] h-[2px] xs1500:w-[15px] xs1500:h-[3px] bg-[#888990] absolute
                         left-[50%] translate-x-[-50%] rounded-[3px]' />
                     </motion.button>
-                    <h3 className="text-[28px] text-primary font-medium">{button.title}</h3>
+                    <motion.h3
+                        initial={{ x: 0 }}
+                        animate={
+                            { x: isExpanded ? deviceConfig.widthX : 0 }
+                        }
+                        className="text-[23px] xs1500:text-[28px] text-primary font-medium">{button.title}</motion.h3>
                 </motion.div>
 
 
@@ -100,7 +157,7 @@ const ButtonContent: React.FC<ButtonContentProps> = ({ button, index, isExpanded
                                 className="absolute top-[22px] w-full"
                             >
                                 <motion.p
-                                    className="text-op0 text-[24px] w-[95%] font-medium"
+                                    className="text-op0 text-[20px] w-full xs1500:text-[24px] xs1500:w-[95%] font-medium"
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{

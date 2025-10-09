@@ -21,9 +21,15 @@ export const AnimatedPhone = ({ currentScreenshot, direction, anim, scrollProgre
   };
 
   const CONFIGS: Record<number, PhoneConfig> = {
-    1536: {
+    1300: {
       initial: { y: 700, rotateX: 55, scale: 1.8 },
       anim1: { rotateX: 0, scale: 1, y: 270 },
+      anim2: { rotateX: 0, scale: 1, y: 0 },
+      exit: { rotateX: 0, scale: 1, opacity: 0, y: -250 },
+    },
+    1536: {
+      initial: { y: 600, rotateX: 55, scale: 1.8 },
+      anim1: { rotateX: 0, scale: 1, y: 230 },
       anim2: { rotateX: 0, scale: 1, y: 0 },
       exit: { rotateX: 0, scale: 1, opacity: 0, y: -250 },
     },
@@ -48,7 +54,7 @@ export const AnimatedPhone = ({ currentScreenshot, direction, anim, scrollProgre
     for (const thresh of thresholds) {
       if (width >= thresh) return CONFIGS[thresh];
     }
-    return CONFIGS[1536]; // fallback
+    return CONFIGS[1536]; 
   };
 
 
@@ -66,19 +72,10 @@ export const AnimatedPhone = ({ currentScreenshot, direction, anim, scrollProgre
 
   return (
     <motion.div
-      style={{
-        position: 'fixed',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        perspective: '500px',
-        transformStyle: 'preserve-3d',
-        willChange: 'transform',
-      }}
-      className="phone-container pointer-events-none"
+      className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 [perspective:500px] [transform-style:preserve-3d] [will-change:transform] phone-container pointer-events-none"
     >
       <motion.div
-        className="z-10 relative w-[350px] aspect-[430/888]"
+        className="z-10 relative w-[250px] xs1300:w-[300px] xs1700:w-[350px] aspect-[430/888]"
         initial={deviceConfig.initial}
         animate={
           scrollProgress > 0.9
@@ -95,29 +92,15 @@ export const AnimatedPhone = ({ currentScreenshot, direction, anim, scrollProgre
         <motion.img
           src="/media/ip15.svg"
           alt="Phone"
-          className="relative w-full h-full rounded-[40px]"
+          className="relative w-full h-full rounded-[20px] xs1500:rounded-[40px]"
         />
-        <div
-          style={{
-            position: 'absolute',
-            width: 'auto',
-            height: 'auto',
-            background: '#000000',
-            top: 0,
-            left: 6,
-            right: 8,
-            bottom: 4,
-            borderRadius: 50,
-            overflow: 'hidden',
-            padding: 10,
-          }}
-        >
+        <div className="absolute w-auto h-auto bg-black top-0 left-[1.5%] right-[1.7%] bottom-[4px] rounded-[42px] xs1500:rounded-[35px] xs1700:rounded-[50px] overflow-hidden p-[10px]">
           <motion.img
             src="/media/ip15cam.svg"
             alt="Phone camera"
             className="absolute z-[2] left-[50%] translate-x-[-50%] top-[28px] w-[25%]"
           />
-          <div className="relative bg-white w-full h-full rounded-[50px]">
+          <div className="relative bg-white w-full h-full rounded-[35px] xs1550:rounded-[50px]">
             <AnimatePresence initial={false} custom={direction} mode="sync">
               {SCREENSHOTS.map((src, index) =>
                 index === currentScreenshot && (

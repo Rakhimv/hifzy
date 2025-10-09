@@ -17,8 +17,8 @@ const IconCard: React.FC<IconCardProps> = ({
     className = '' 
 }) => {
     const sizeClasses = {
-        small: 'w-[57px] h-[57px]',
-        medium: 'w-[70px] h-[70px]',
+        small: 'w-[40px] h-[40px] xs1500:w-[57px] xs1500:h-[57px]',
+        medium: 'w-[50px] h-[50px] xs1500:w-[70px] xs1500:h-[70px]',
         large: 'w-[80px] h-[80px]'
     };
 
@@ -39,7 +39,7 @@ const IconCard: React.FC<IconCardProps> = ({
                 duration: 0.5,
             }}
         >
-            <img className="w-[30px]" src={src} alt="Icon" />
+            <img className="w-[20px] xs1500:w-[30px]" src={src} alt="Icon" />
         </motion.div>
     );
 };

@@ -134,7 +134,7 @@ export default function PhoneScrollAnimation() {
                     // style={{ y: endY, opacity: endOpacity }}
                     // transition={{ duration: 2 }}
                     className="w-full flex justify-center">
-                    <div className="relative max-w-[1920px] w-full">
+                    <div className="relative max-w-[1920px] w-full flex justify-center">
                         <SideBlocks
                             scrollProgress={currentProgress}
                             currentScreenshot={currentScreenshot}

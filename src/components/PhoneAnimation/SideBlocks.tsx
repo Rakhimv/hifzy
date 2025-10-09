@@ -71,16 +71,20 @@ export const SideBlocks = ({ currentScreenshot, scrollProgress, style }: SideBlo
                                 }}
 
                                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                                className={`  fixed ${block.side === "left" ? "left-[calc(50%-960px+2%)]" : "right-[calc(50%-960px+2%)]"}  bg-[#FBFBFC] flex items-center p-[20px] rounded-[30px] gap-[24px]`}
+                                className={`  fixed ${block.side === "left" ?
+                                    "left-[calc(50%-600px+2%)] xs1230:left-[calc(50%-700px+2%)] xs1700:left-[calc(50%-800px+2%)] xs1900:left-[calc(50%-900px+2%)] origin-right"
+                                    :
+                                    "right-[calc(50%-600px+2%)] xs1230:right-[calc(50%-700px+2%)] xs1700:right-[calc(50%-800px+2%)] xs1900:right-[calc(50%-900px+2%)] origin-left flex-row-reverse"}  
+                                    bg-[#FBFBFC] flex items-center p-[20px] scale-[.8] xs1350:scale-100 rounded-[30px] gap-[24px]`}
                                 style={{ top: block.top, ...style }}
                             >
-                                <img src={block.img} alt={block.title} className="w-[240px]" />
-                                <div className={`flex flex-col w-[325px] ${block.side === "right" && "items-end"}`}>
-                                    <span className="px-[16px] w-max py-[12px] border-[2px] border-[#E4E4E4] rounded-[20px] text-[24px]">
+                                <img src={block.img} alt={block.title} className="w-[150px] xs1700:w-[200px] xs1900:w-[240px]" />
+                                <div className={`flex flex-col w-[250px] xs1900:w-[325px] ${block.side === "right" && "items-end"}`}>
+                                    <span className="py-[4px] px-[10px] xs1900:px-[16px] xs1900:py-[12px] w-max  border-[2px] border-[#E4E4E4] rounded-[20px] text-[18px] xs1900:text-[24px]">
                                         {block.topic}
                                     </span>
-                                    <h3 className={`text-primary text-[40px] font-semibold ${block.side === "right" && "text-right"}`}>{block.title}</h3>
-                                    <p className={`text-op2 text-[24px] font-semibold ${block.side === "right" && "text-right"}`}>{block.sub}</p>
+                                    <h3 className={`text-primary text-[25px] xs1700:text-[30px] xs1900:text-[40px] font-semibold ${block.side === "right" && "text-right"}`}>{block.title}</h3>
+                                    <p className={`text-op2 text-[16px] xs1700:text-[20px] xs1900:text-[24px] font-semibold ${block.side === "right" && "text-right"}`}>{block.sub}</p>
                                 </div>
                             </motion.div>
                         )}

@@ -6,8 +6,11 @@ type Config = {
 };
 
 const CONFIGS: Record<number, Config> = {
+  1300: {
+    top: [170, 160], 
+  },
   1536: {
-    top: [200, 148], 
+    top: [200, 108], 
   },
   1700: {
     top: [170, 148],

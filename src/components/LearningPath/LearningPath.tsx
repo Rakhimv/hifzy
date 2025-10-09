@@ -83,15 +83,15 @@ const LearningPath: React.FC = () => {
                             duration: 0.6
                         }}
                         style={{ position: "absolute" }}
-                        className='relative top-[32%] left-[29%] shadow-[0_7.35px_29.41px_0_rgba(149,157,175,0.2)] px-[23px] py-[17px] rounded-[18px] bg-white flex flex-col items-center gap-1.5'>
+                        className='relative top-[32%] left-[29%] shadow-[0_7.35px_29.41px_0_rgba(149,157,175,0.2)] px-[2%] py-[1%] rounded-[18px] bg-white flex flex-col items-center gap-1.5'>
 
                         <div className='flex items-center gap-[6px]'>
                             <img src='/media/learning/steps/square.svg' />
-                            <p className='font-medium text-op1 text-[21px]'>3 ayahs</p>
+                            <p className='font-medium text-op1 text-[1vw]'>3 ayahs</p>
                         </div>
 
 
-                        <p className='text-center font-semibold text-[24px]'>The Divine Support</p>
+                        <p className='text-center font-semibold text-[1.1vw]'>The Divine Support</p>
 
                         <div className='absolute left-1/2 -translate-y-1/2
                          top-full'>
@@ -115,7 +115,7 @@ const LearningPath: React.FC = () => {
             transition: { duration: 0.5, delay: 0.4 },
             content: (
                 <div className="w-full flex justify-center">
-                    <div className='grid grid-cols-3 grid-rows-3 w-full max-w-[562px] gap-[32px] rotate-[3deg]'>
+                    <div className='grid grid-cols-3 grid-rows-3 w-[60%] xs1500:w-[70%] xs1700:w-full max-w-[562px] gap-[32px] rotate-[3deg]'>
                         {Array.from({ length: 9 }).map((_, index) =>
                             <motion.div
                                 key={index}
@@ -163,7 +163,7 @@ const LearningPath: React.FC = () => {
             animate: { opacity: 1, y: 0 },
             transition: { duration: 0.5, delay: 0.3 },
             content: (
-                <div className="w-full flex items-center justify-center relative">
+                <div className="w-[70%] xs1500:w-[80%] xs1700:w-full flex items-center justify-center relative">
                     <motion.img
                         initial={{ scale: .5, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
@@ -228,7 +228,8 @@ const LearningPath: React.FC = () => {
             <div ref={containerRef} className="w-full sticky top-0 h-screen bg-gradient-to-b from-[#FFFFFF] to-[#EEF0F6] flex items-center justify-center z-10">
                 <div className='w-full h-[200px] bg-gradient-to-b from-transparent to-white absolute bottom-full left-0' />
                 <div className="w-full max-w-[1920px] py-[100px]  mx-auto flex items-center justify-between">
-                    <div className="flex mx-[120px] justify-between">
+                    
+                    <div className="flex mx-[20px] xs1167:mx-[40px] xs1300:mx-[80px] xs1500:mx-[120px] justify-between mr-[20px] xs1500:mr-[40px]">
                         <div className="relative flex items-center gap-[40px]">
                             <motion.div
                                 className="flex flex-col gap-[20px] min-w-[60px]"
@@ -255,7 +256,7 @@ const LearningPath: React.FC = () => {
                                     <img src="/media/array.svg" className="w-[24px] h-[24px]" alt="Next" />
                                 </motion.button>
                             </motion.div>
-                            <div className="flex flex-col gap-[20px] w-[500px] relative">
+                            <div className="flex flex-col gap-[20px] w-[350px] xs1500:w-[500px] relative">
                                 {buttons.map((button, index) => (
                                     <motion.div
                                         key={button.id}
@@ -280,6 +281,8 @@ const LearningPath: React.FC = () => {
                             </div>
                         </div>
                     </div>
+
+
                     <div className="w-full h-full relative">
                         <div className="relative w-full flex items-center justify-center h-screen overflow-hidden">
                             <AnimatePresence mode="wait">
