@@ -21,15 +21,27 @@ export const AnimatedPhone = ({ currentScreenshot, direction, anim, scrollProgre
   };
 
   const CONFIGS: Record<number, PhoneConfig> = {
+    1000: {
+      initial: { y: 590, rotateX: 55, scale: 1.8 },
+      anim1: { rotateX: 0, scale: 1, y: 200 },
+      anim2: { rotateX: 0, scale: 1, y: 0 },
+      exit: { rotateX: 0, scale: 1, opacity: 0, y: -250 },
+    },
     1300: {
-      initial: { y: 700, rotateX: 55, scale: 1.8 },
+      initial: { y: 550, rotateX: 55, scale: 1.8 },
       anim1: { rotateX: 0, scale: 1, y: 270 },
       anim2: { rotateX: 0, scale: 1, y: 0 },
       exit: { rotateX: 0, scale: 1, opacity: 0, y: -250 },
     },
+    1396: {
+      initial: { y: 550, rotateX: 55, scale: 2.2 },
+      anim1: { rotateX: 0, scale: 1, y: 200 },
+      anim2: { rotateX: 0, scale: 1, y: 0 },
+      exit: { rotateX: 0, scale: 1, opacity: 0, y: -250 },
+    },
     1536: {
-      initial: { y: 600, rotateX: 55, scale: 1.8 },
-      anim1: { rotateX: 0, scale: 1, y: 230 },
+      initial: { y: 550, rotateX: 55, scale: 2 },
+      anim1: { rotateX: 0, scale: 1, y: 170 },
       anim2: { rotateX: 0, scale: 1, y: 0 },
       exit: { rotateX: 0, scale: 1, opacity: 0, y: -250 },
     },
@@ -54,7 +66,7 @@ export const AnimatedPhone = ({ currentScreenshot, direction, anim, scrollProgre
     for (const thresh of thresholds) {
       if (width >= thresh) return CONFIGS[thresh];
     }
-    return CONFIGS[1536]; 
+    return CONFIGS[1536];
   };
 
 
