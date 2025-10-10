@@ -4,7 +4,7 @@ import { FaArrowRight } from "react-icons/fa"
 
 const Footer = () => {
     return (
-        <div className="bg-white w-full flex justify-center relative z-[11] m-auto pt-[150px]">
+        <div className=" bg-white w-full hidden xs1000:flex justify-center relative z-[11] m-auto pt-[150px]">
 
 
             <div className={`w-full transition-all duration-500 overflow-hidden max-w-[1542px]`}>
