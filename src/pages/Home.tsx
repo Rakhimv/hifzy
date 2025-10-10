@@ -22,7 +22,7 @@ const Home: React.FC = () => {
                 <div className="block xs1000:hidden">
                     <Hero />
                 </div>
-                {/* <Footer /> */}
+                <Footer />
                 <InnerW />
             </div>
         </div>
