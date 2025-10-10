@@ -14,7 +14,7 @@ const Footer = () => {
                         {menuBlocks.map((block) => (
                             <motion.div
                                 key={block.id}
-                                className="min-w-[320px] h-auto aspect-[320/400] rounded-[32px] p-[30px] relative overflow-hidden cursor-pointer"
+                                className="min-w-[200px] xs1167:min-w-[230px] xs1350:min-w-[280px] xs1500:min-w-[320px] h-auto aspect-[320/400] rounded-[32px] p-[20px] xs1500:p-[30px] relative overflow-hidden cursor-pointer"
                                 style={{ backgroundColor: block.bgColor }}
                                 // onClick={() => scrollToSection(block.anchor)}
                                 whileHover="hover"
@@ -24,14 +24,14 @@ const Footer = () => {
                                     hover: { opacity: 1 }
                                 }}
                             >
-                                <img src={block.image} className="absolute w-full left-0 top-0" />
+                                <img src={block.image} className="absolute w-full left-0 bottom-0" />
 
                                 <div className="flex h-full relative justify-end z-[2] flex-col">
-                                    <p className={`text-[36px] font-semibold ${block.textColor}`}>
+                                    <p className={`text-[20px] xs1167:text-[26px] xs1500:text-[36px] font-semibold ${block.textColor}`}>
                                         {block.title}
                                     </p>
                                     <motion.div
-                                        className={`text-[24px] flex items-center ${block.textColor} gap-[10px]`}
+                                        className={`text-[15px] xs1167:text-[18px] xs1500:text-[24px] flex items-center ${block.textColor} gap-[10px]`}
                                         initial={{ opacity: 1 }}
                                         variants={{
                                             initial: { opacity: 1 },

@@ -21,8 +21,8 @@ const AlsoAsked = ({ items, onQuestionClick }: Props) => {
                     duration: 0.4,
                     ease: "easeOut",
                 }}
-                style={{transformOrigin: "left"}}
-                className="text-[32px] text-[#44474ecc] font-medium">AlsoAsked</motion.p>
+                style={{ transformOrigin: "left" }}
+                className="text-[26px] xs1700:text-[32px] text-[#44474ecc] font-medium">AlsoAsked</motion.p>
 
             <div className="flex flex-col gap-[20px] mt-[30px]">
 
@@ -32,7 +32,11 @@ const AlsoAsked = ({ items, onQuestionClick }: Props) => {
                     <motion.button
                         key={i}
                         onClick={() => onQuestionClick(item.question, item.answer)}
-                        className="px-[32px] w-max border-[2px] border-[#E4E4E4] py-[20px] outline-none rounded-[32px] text-[28px] cursor-pointer"
+                        className="
+                        px-[25px] py-[15px] xs1700:py-[20px] xs1700:px-[32px]
+                        w-max border-[2px] border-[#E4E4E4] 
+                        outline-none rounded-[32px] 
+                        text-[23px] xs1700:text-[28px] cursor-pointer"
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true, amount: 0.5 }}

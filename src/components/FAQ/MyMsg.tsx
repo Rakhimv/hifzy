@@ -14,8 +14,11 @@ const MyMsg = (props: Props) => {
             transition={{ duration: 0.4}}
             style={{ transformOrigin: "center" }}
             className="w-full flex justify-start">
-            <div className="bg-[#434449] rounded-[40px] p-[40px] max-w-[50%]">
-                <p className="text-[28px] text-transform text-[#FFFFFF] font-medium">
+            <div className="bg-[#434449] 
+            rounded-[40px] 
+            p-[30px] xs1700:p-[40px] 
+            max-w-[50%]">
+                <p className="text-[23px] xs1700:text-[28px] text-transform text-[#FFFFFF] font-medium">
                     {props.text}
                 </p>
             </div>

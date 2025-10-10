@@ -15,8 +15,10 @@ const AiMsg = (props: Props) => {
                 viewport={{ once: true, amount: 0.5 }}
                 transition={{ duration: 0.4, delay: 0.2 }}
                 style={{ transformOrigin: "center" }}
-                className="bg-[#F5F3F7] rounded-[40px] p-[40px] max-w-[75%]">
-                <p className="text-[28px] text-right text-transform text-[#66696E] font-medium">
+                className="bg-[#F5F3F7] rounded-[40px] 
+                 p-[30px] xs1700:p-[40px] 
+                 max-w-[75%]">
+                <p className="text-[23px] xs1700:text-[28px] text-right text-transform text-[#66696E] font-medium">
                     {props.text}
                 </p>
             </motion.div>

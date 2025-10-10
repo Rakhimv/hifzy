@@ -59,7 +59,7 @@ const FavoriteDeeds: React.FC = () => {
 
             <div
                 ref={titleRef}
-                className="w-full flex flex-col items-center text-center font-bold text-[80px] text-primary"
+                className="w-full flex flex-col items-center text-center font-bold text-[50px] xs1500:text-[60px] xs1700:text-[70px] xs1900:text-[80px] text-primary"
             >
                 <p>Allah's Favorite Deeds</p>
 
@@ -70,7 +70,7 @@ const FavoriteDeeds: React.FC = () => {
                         initial={{ opacity: 0.1 }}
                         animate={{ opacity: isVisibleTitle ? 1 : 0.1 }}
                         transition={{ duration: 0.8 }}
-                        className="bg-[#434449] py-[10px] px-[25px] rounded-[32px] flex items-center gap-[16px] relative"
+                        className="bg-[#434449] py-[10px] px-[25px] rounded-[32px] flex items-center gap-[16px] relative overflow-hidden"
                     >
                         <motion.p
                             initial={{ x: 100 }}
@@ -141,10 +141,12 @@ const FavoriteDeeds: React.FC = () => {
                 animate={{ opacity: isVisibleButton ? 1 : 0, y: isVisibleButton ? 0 : 20 }}
                 transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
                 ref={buttonRef}
-                className="relative text-[34px] inline-block h-max rounded-[22px] overflow-hidden"
+                className="relative text-[30px] xs1700:text-[34px] inline-block h-max rounded-[22px] overflow-hidden"
             >
                 <button
-                    className="relative px-[32px] py-[20px] cursor-pointer outline-none rounded-[36px] mt-[56px] text-white bg-gradient-to-b from-[#90C6B6] to-[#7BAF9D] shadow-[inset_0_0_15px_2px_rgba(255,255,255,0.73)] flex items-center gap-[10px]"
+                    className="relative 
+                    px-[25px] py-[15px] xs1700:px-[32px] xs1700:py-[20px]
+                    cursor-pointer outline-none rounded-[30px] xs1700:rounded-[36px] mt-[56px] text-white bg-gradient-to-b from-[#90C6B6] to-[#7BAF9D] shadow-[inset_0_0_15px_2px_rgba(255,255,255,0.73)] flex items-center gap-[10px]"
                 >
                     <p className="z-[3]">Get Started</p>
                     <img src="/media/aipractice/array2.svg" />
