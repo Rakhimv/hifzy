@@ -84,7 +84,7 @@ export const SideBlocks = ({ currentScreenshot, scrollProgress, style }: SideBlo
                                         {block.topic}
                                     </span>
                                     <h3 className={`text-primary text-[25px] xs1700:text-[30px] xs1900:text-[40px] font-semibold ${block.side === "right" && "text-right"}`}>{block.title}</h3>
-                                    <p className={`text-op2 text-[16px] xs1700:text-[20px] xs1900:text-[24px] font-semibold ${block.side === "right" && "text-right"}`}>{block.sub}</p>
+                                    <p className={`text-op2 text-[16px] xs1700:text-[20px] xs1900:text-[24px] font-normal ${block.side === "right" && "text-right"}`}>{block.sub}</p>
                                 </div>
                             </motion.div>
                         )}

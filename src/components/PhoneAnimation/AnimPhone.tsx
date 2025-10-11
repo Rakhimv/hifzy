@@ -106,13 +106,17 @@ export const AnimatedPhone = ({ currentScreenshot, direction, anim, scrollProgre
           alt="Phone"
           className="relative w-full h-full rounded-[20px] xs1500:rounded-[40px]"
         />
-        <div className="absolute w-auto h-auto bg-black top-0 left-[1.5%] right-[1.7%] bottom-[4px] rounded-[42px] xs1500:rounded-[35px] xs1700:rounded-[50px] overflow-hidden p-[10px]">
+        <div className="absolute w-auto h-auto bg-black top-[0.5%] left-[1.5%] right-[1.7%] bottom-[4px] 
+        rounded-[33px] xs1500:rounded-[43px] xs1700:rounded-[47px]
+        overflow-hidden p-[10px]">
           <motion.img
             src="/media/ip15cam.svg"
             alt="Phone camera"
             className="absolute z-[2] left-[50%] translate-x-[-50%] top-[28px] w-[25%]"
           />
-          <div className="relative bg-white w-full h-full rounded-[35px] xs1550:rounded-[50px]">
+          <div className="relative bg-white w-full h-full
+           rounded-[23px] xs1500:rounded-[33px] xs1700:rounded-[37px]
+           ">
             <AnimatePresence initial={false} custom={direction} mode="sync">
               {SCREENSHOTS.map((src, index) =>
                 index === currentScreenshot && (
@@ -130,7 +134,7 @@ export const AnimatedPhone = ({ currentScreenshot, direction, anim, scrollProgre
                     initial={{ opacity: 0, filter: 'blur(10px)' }}
                     animate={{ opacity: 1, filter: 'blur(0px)' }}
                     exit={{ opacity: 0, filter: 'blur(10px)' }}
-                    transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
                   />
                 )
               )}
