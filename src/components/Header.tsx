@@ -114,7 +114,7 @@ const Header = () => {
                 className={`max-w-[1542px] w-full ${lastScrollY < 400 && !isMobileMenuOpen ? "" : ""
                     } bg-white ${isMobileMenuOpen ? "rounded-[32px]" : "rounded-[32px]"} transition-all mx-auto relative`}
             >
-                <div className="p-[24px] xs1000:p-[40px] flex w-full justify-between">
+                <div className="p-[24px] xs1000:p-[30px] xs1550:p-[40px] flex w-full justify-between">
                     <div className="flex items-center w-full rounded-[36px] bg-[#F5F5F6] xs1000:bg-transparent xs1000:w-auto justify-between px-[24px] py-[20px] xs1000:rounded-none xs1000:px-0 xs1000:py-0">
                         <img
                             src="/full-logo.svg"
@@ -145,15 +145,22 @@ const Header = () => {
 
                         <div
                             className={`hidden xs1000:flex items-center gap-[10px] xs1230:gap-[20px] transition-all duration-500 ${isMobileMenuOpen
-                                    ? "opacity-0 transform translate-x-[-20px]"
-                                    : "opacity-100 transform translate-x-0"
+                                ? "opacity-0 transform translate-x-[-20px]"
+                                : "opacity-100 transform translate-x-0"
                                 }`}
                         >
                             {menu.map((item, index) => (
                                 <button
                                     key={index}
                                     onClick={() => scrollToSection(item.anchor)}
-                                    className="px-[16px] h-[50px] xs1230:px-[24px] xs1230:h-[68px] xs1230:py-[20px] rounded-[20px] font-medium cursor-pointer text-primary text-xl xs1230:text-2xl bg-secondary outline-none hover:bg-primary hover:text-white transition-colors duration-200"
+                                    className="
+                                        px-[16px] h-[50px] 
+                                        xs1230:px-[24px] xs1230:h-[60px] xs1230:py-[20px] 
+                                        xs1550:px-[24px] xs1550:h-[68px] xs1550:py-[20px]
+                                        flex items-center 
+                                        rounded-[20px] font-medium cursor-pointer 
+                                        text-primary text-xl xs1230:text-2xl bg-secondary outline-none
+                                         hover:bg-primary hover:text-white transition-colors duration-200"
                                 >
                                     {item.text}
                                 </button>
@@ -163,11 +170,15 @@ const Header = () => {
 
                     <div
                         className={`desktop-menu-content hidden xs1000:flex gap-[10px] xs1230:gap-[16px] transition-all duration-500 ${isMobileMenuOpen
-                                ? "opacity-0 transform translate-x-[20px]"
-                                : "opacity-100 transform translate-x-0"
+                            ? "opacity-0 transform translate-x-[20px]"
+                            : "opacity-100 transform translate-x-0"
                             }`}
                     >
-                        <button className="px-[20px] h-[50px] xs1230:px-[24px] xs1230:h-[68px] xs1230:py-[20px] rounded-[20px] font-medium cursor-pointer bg-secondary text-primary text-xl xs1230:text-2xl outline-none flex transition-colors duration-200 items-center">
+                        <button className="
+                            px-[20px] h-[50px]
+                            xs1230:px-[24px] xs1230:h-[60px] xs1230:py-[20px] 
+                            xs1550:px-[24px] xs1550:h-[68px] xs1550:py-[20px] 
+                            rounded-[20px] font-medium cursor-pointer bg-secondary text-primary text-xl xs1230:text-2xl outline-none flex transition-colors duration-200 items-center">
                             Hifzy for Android
                             <img
                                 src="/media/googleplay.svg"
@@ -176,7 +187,11 @@ const Header = () => {
                             />
                         </button>
 
-                        <button className="px-[20px] h-[50px]  xs1230:px-[24px] xs1230:h-[68px] xs1230:py-[20px] rounded-[20px] font-medium cursor-pointer bg-primary text-white text-xl xs1230:text-2xl outline-none flex transition-colors duration-200 items-center">
+                        <button className="
+                            px-[20px] h-[50px]
+                            xs1230:px-[24px] xs1230:h-[60px] xs1230:py-[20px] 
+                            xs1550:px-[24px] xs1550:h-[68px] xs1550:py-[20px] 
+                            rounded-[20px] font-medium cursor-pointer bg-primary text-white text-xl xs1230:text-2xl outline-none flex transition-colors duration-200 items-center">
                             Hifzy for iOS
                             <img
                                 src="/media/appstore.svg"
