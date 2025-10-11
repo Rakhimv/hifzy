@@ -21,16 +21,15 @@ const IconCard: React.FC<IconCardProps> = ({
         medium: 'w-[50px] h-[50px] xs1500:w-[70px] xs1500:h-[70px]',
         large: 'w-[80px] h-[80px]'
     };
-
     return (
         <motion.div
             className={`${sizeClasses[size]} 
                 shadow-[0px_7.9px_31.6px_rgba(149,157,175,0.37)]
-                aspect-square bg-white rounded-2xl flex items-center justify-center
-                ${className} rotate-[${rotation}deg]`}
-            style={{ transform: `rotate(${rotation}deg)` }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+                aspect-square bg-white rounded-xl xs1000:rounded-2xl flex items-center justify-center
+                ${className}`}
+            initial={{ opacity: 0, y: 20, rotate: rotation }}
+            animate={{ opacity: 1, y: 0, rotate: rotation }}
+            exit={{ opacity: 0, y: 20, rotate: rotation }}
             transition={{
                 type: 'spring',
                 stiffness: 100,

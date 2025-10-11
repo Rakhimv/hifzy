@@ -28,8 +28,8 @@ const Hero = ({ showA3 = true }) => {
                 <div className="w-full max-h-[400px] flex flex-col items-center">
                     <motion.div
                         className="z-10 relative w-[80%] max-w-[400px] aspect-[430/888] mt-[50px]"
-                        initial={{y: 600}}
-                        animate={{y: 0}}
+                        initial={{ y: 600 }}
+                        animate={{ y: 0 }}
                         transition={{ duration: 1.5, ease: [0.23, 1, 0.32, 1] }}
                     >
 
@@ -56,9 +56,9 @@ const Hero = ({ showA3 = true }) => {
                                         top: 0,
                                         left: 0,
                                     }}
-                                    initial={{ opacity: 0, filter: 'blur(10px)' }}
-                                    animate={{ opacity: 1, filter: 'blur(0px)' }}
-                                    exit={{ opacity: 0, filter: 'blur(10px)' }}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
                                     transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
                                 />
 

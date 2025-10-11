@@ -15,7 +15,7 @@ export const blocks = [
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.8 }}
                 className="origin-bottom-left z-[2] absolute bottom-[-50px] w-[50%] rotate-[15deg]"
-                src={`${path}/1/img1.png`} />
+                src={`${path}/1/img1.webp`} />
 
 
             <motion.img
@@ -23,7 +23,7 @@ export const blocks = [
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.8 }}
                 className="origin-bottom-right right-0 absolute bottom-[-30px] w-[50%] rotate-[-10deg]"
-                src={`${path}/1/img2.png`} />
+                src={`${path}/1/img2.webp`} />
 
 
         </div>
@@ -73,13 +73,13 @@ export const blocks = [
                 animate={{ y: 0 }}
                 transition={{ duration: 1, ease: "easeInOut" }}
                 className="origin-bottom absolute w-[60%] z-[2] left-1/2 -translate-x-1/2 top-[38%]"
-                src={`${path}/4/img1.png`} />
+                src={`${path}/4/img1.webp`} />
             <motion.img
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="origin-bottom z-[2] absolute w-[70%] left-1/2 -translate-x-1/2 bottom-0"
-                src={`${path}/4/img2.svg`} />
+                src={`${path}/4/img2.webp`} />
 
             <motion.img
                 initial={{ opacity: 0 }}

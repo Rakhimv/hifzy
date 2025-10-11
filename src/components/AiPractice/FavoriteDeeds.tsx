@@ -223,35 +223,35 @@ const FavoriteDeeds: React.FC = () => {
                     className="mt-[100px] w-full relative flex justify-center overflow-hidden"
                 >
                     <img
-                        src="/media/aipractice/a.png"
+                        src="/media/aipractice/a.webp"
                         className="w-[40%] relative z-[3] rounded-t-[18%]"
                     />
                     <motion.img
                         initial={{ x: 50 }}
                         animate={{ x: isVisibleImages ? 0 : 50 }}
                         transition={{ duration: 0.4, delay: 0.8 }}
-                        src="/media/aipractice/b1.png"
+                        src="/media/aipractice/b1.webp"
                         className="w-[35%] absolute z-[2] bottom-0 right-1/2 translate-x-[10%] rounded-t-[18%]"
                     />
                     <motion.img
                         initial={{ x: -50 }}
                         animate={{ x: isVisibleImages ? 0 : -50 }}
                         transition={{ duration: 0.4, delay: 0.8 }}
-                        src="/media/aipractice/b2.png"
+                        src="/media/aipractice/b2.webp"
                         className="w-[35%] absolute z-[2] bottom-0 left-1/2 translate-x-[-10%] rounded-t-[18%]"
                     />
                     <motion.img
                         initial={{ x: 50 }}
                         animate={{ x: isVisibleImages ? 0 : 50 }}
                         transition={{ duration: 0.4, delay: 0.8 }}
-                        src="/media/aipractice/b3.png"
+                        src="/media/aipractice/b3.webp"
                         className="w-[30%] absolute z-[1] bottom-0 right-1/2 translate-x-[-40%] rounded-t-[18%]"
                     />
                     <motion.img
                         initial={{ x: -50 }}
                         animate={{ x: isVisibleImages ? 0 : -50 }}
                         transition={{ duration: 0.4, delay: 0.8 }}
-                        src="/media/aipractice/b4.png"
+                        src="/media/aipractice/b4.webp"
                         className="w-[30%] absolute z-[1] bottom-0 left-1/2 translate-x-[40%] rounded-t-[18%]"
                     />
                 </motion.div>

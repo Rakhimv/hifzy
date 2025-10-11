@@ -2,12 +2,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const images = [
-    "/media/popups/i1.png",
-    "/media/popups/i2.png",
-    "/media/popups/i3.png",
-    "/media/popups/i4.png",
-    "/media/popups/i5.png",
-    "/media/popups/i6.png",
+    "/media/popups/i1.webp",
+    "/media/popups/i2.webp",
+    "/media/popups/i3.webp",
+    "/media/popups/i4.webp",
+    "/media/popups/i5.webp",
+    "/media/popups/i6.webp",
 ];
 
 const AnimItemsMobile = () => {

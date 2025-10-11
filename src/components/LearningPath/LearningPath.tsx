@@ -4,6 +4,178 @@ import React from 'react';
 import ButtonContent from './ButtonContent';
 import IconStack from './IconStack';
 
+
+
+
+export const iconData = {
+    gamification: [
+        { src: '/media/learning/1/1.svg', size: 'small' as const, rotation: 5, delay: 0.4 },
+        { src: '/media/learning/1/3.svg', size: 'medium' as const, rotation: 4, delay: 0.6, className: 'ml-[-10px] relative z-[2]' },
+        { src: '/media/learning/1/2.svg', size: 'small' as const, rotation: -5, delay: 0.8, className: 'ml-[-10px]' }
+    ],
+    deepLearning: [
+        { src: '/media/learning/2/1.svg', size: 'small' as const, rotation: 5, delay: 0.4 },
+        { src: '/media/learning/2/2.svg', size: 'medium' as const, rotation: 4, delay: 0.6, className: 'ml-[-10px] relative z-[2]' },
+        { src: '/media/learning/2/3.svg', size: 'small' as const, rotation: -5, delay: 0.8, className: 'ml-[-10px]' }
+    ],
+    aiTools: [
+        { src: '/media/learning/3/1.svg', size: 'small' as const, rotation: 5, delay: 0.4 }
+    ]
+};
+
+
+
+export const BtnContents: ButtonContent[] = [
+
+
+
+    {
+        id: 'gamification',
+        title: 'Gamification',
+        description: 'Progress, educational games, and the best memorization formats',
+        image: '/media/screen1.png',
+        icons: <IconStack icons={iconData.gamification} />,
+        initial: { opacity: .3, y: 130 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.5, delay: 0.3 },
+        content: (isMob?: boolean) => (
+            <div className="w-full relative">
+                <img className={`${isMob && "w-full"}`} src={`/media/learning/steps/content${isMob ? "mob" : ""}.svg`} />
+
+
+                <motion.div
+                    initial={{ y: 50, opacity: 0 }}
+                    animate={{
+                        y: 0,
+                        opacity: 1
+                    }}
+                    transition={{
+                        delay: .5,
+                        duration: 0.6
+                    }}
+                    style={{ position: "absolute" }}
+                    className={`relative bg-white rounded-xl
+                        ${isMob ? `left-[35%] top-[42%] px-[20px] py-[14px]` : `top-[32%] left-[35%] xs1300:left-[33%] xs1500:left-[34%] xs1700:left-[35%] xs1900:left-[32%] 
+                         px-[2%] py-[1%] rounded-[18px]`}
+                        shadow-[0_7.35px_29.41px_0_rgba(149,157,175,0.2)]bg-white flex flex-col items-center xs1000:gap-1.5`}>
+
+                    <div className='flex items-center gap-[6px]'>
+                        <img className='w-[15px] xs1000:w-auto' src='/media/learning/steps/square.svg' />
+                        <p className='font-medium text-op1 text-[12px] xs1000:text-[1vw]'>88 ayahs</p>
+                    </div>
+
+
+                    <p className='text-center font-semibold text-[14px] xs1000:text-[1.1vw]'>AI-Qasas</p>
+
+                    <div className='absolute left-1/2 -translate-x-1/2
+                         top-full'>
+                        <svg width="22" height="15" viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.715 13.5453C12.5761 15.4687 9.79252 15.4687 8.65361 13.5452L0.735823 0.172985L21.6328 0.172983L13.715 13.5453Z" fill="white" />
+                        </svg>
+                    </div>
+
+                </motion.div>
+            </div>
+        ),
+    },
+    {
+        id: 'deep-learning',
+        title: 'Deep Learning',
+        description: 'Advanced memorization techniques and cognitive enhancement',
+        image: '/media/screen2.png',
+        icons: <IconStack icons={iconData.deepLearning} />,
+        initial: { opacity: .3, scale: .8 },
+        animate: { opacity: 1, scale: 1 },
+        transition: { duration: 0.5, delay: 0.4 },
+        content: (isMob?: boolean) => (
+            <div className="w-full flex justify-center">
+                <div className={`grid grid-cols-3 grid-rows-3 w-[70%] xs100:w-[60%] xs1500:w-[70%] xs1700:w-full max-w-[562px] ${isMob ? "gap-[14px]" : "rotate-[3deg] gap-[32px]"}`}>
+                    {Array.from({ length: 9 }).map((_, index) =>
+                        <motion.div
+                            key={index}
+                            className='w-full aspect-square'
+                            initial={{ opacity: 0, scale: 0.5, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{
+                                opacity: 0, scale: 0, y: -20, transition: {
+                                    type: 'spring',
+                                    stiffness: 100,
+                                    damping: 15,
+                                    delay: 0,
+                                    duration: 0.5,
+                                }
+                            }}
+                            transition={{
+                                type: 'spring',
+                                stiffness: 100,
+                                damping: 15,
+                                delay: 0.05 * index,
+                                duration: 0.3,
+                            }}
+                        >
+                            <img
+                                style={{
+                                    boxShadow: "-19.21px 19.21px 38.7px -9.15px rgba(57,59,65,0.05)"
+                                }}
+                                className={`w-full ${isMob ? "rounded-[10px]" : "rounded-[30px]"} aspect-square`}
+                                src={`/media/learning/grid/${index + 1}.svg`}
+                                loading="lazy"
+                            />
+                        </motion.div>
+                    )}
+                </div>
+            </div>
+        ),
+    },
+    {
+        id: 'ai-tools',
+        title: 'AI Tools',
+        description: 'Intelligent assistance and personalized learning paths',
+        image: '/media/screen3.png',
+        icons: <IconStack icons={iconData.aiTools} />,
+        initial: { opacity: .3, y: -130 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.5, delay: 0.3 },
+        content: (isMob?: boolean) => (
+            <div className="w-[75%] xs1000:w-[70%] xs1500:w-[80%] xs1700:w-full flex items-center justify-center relative"
+            style={{top: isMob ? "30px" : "" }}
+            >
+                <motion.img
+                    initial={{ scale: .5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 1, delay: 0.5 }}
+                    className='absolute z-0'
+                    src='/media/learning/quran/bg.webp' />
+                <div className={`relative z-[10] ${!isMob && " rotate-[-3deg]"}`}>
+                    <img
+                        className=''
+                        src='/media/learning/quran/page.webp' />
+
+                    <div className='absolute w-[70%] left-[50%] translate-x-[-50%] top-[61.5%] flex justify-center'>
+                        <motion.img
+                            initial={{ width: '0%' }}
+                            animate={{ width: '100%' }}
+                            transition={{ duration: 1, delay: 0.5 }}
+                            className='w-full'
+                            src='/media/learning/quran/line.svg'
+                        />
+                        <motion.img
+                            initial={{ scale: 0, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ duration: .4, delay: 0.5 }}
+                            className='absolute w-[20%] top-[50%] translate-y-[-50%] left-1/2 -translate-x-1/2'
+                            src='/media/learning/quran/ai.svg'
+                        />
+                    </div>
+
+                </div>
+            </div>
+        ),
+    },
+];
+
+
+
 const LearningPath: React.FC = () => {
     const [activeSection, setActiveSection] = useState(0);
     const [expandedButtons, setExpandedButtons] = useState<Set<number>>(new Set());
@@ -38,170 +210,11 @@ const LearningPath: React.FC = () => {
         };
     }, [hasAnimated]);
 
-    const iconData = {
-        gamification: [
-            { src: '/media/learning/1/1.svg', size: 'small' as const, rotation: 5, delay: 0.4 },
-            { src: '/media/learning/1/3.svg', size: 'medium' as const, rotation: 4, delay: 0.6, className: 'ml-[-10px] relative z-[2]' },
-            { src: '/media/learning/1/2.svg', size: 'small' as const, rotation: -5, delay: 0.8, className: 'ml-[-10px]' }
-        ],
-        deepLearning: [
-            { src: '/media/learning/2/1.svg', size: 'small' as const, rotation: 5, delay: 0.4 },
-            { src: '/media/learning/2/2.svg', size: 'medium' as const, rotation: 4, delay: 0.6, className: 'ml-[-10px] relative z-[2]' },
-            { src: '/media/learning/2/3.svg', size: 'small' as const, rotation: -5, delay: 0.8, className: 'ml-[-10px]' }
-        ],
-        aiTools: [
-            { src: '/media/learning/3/1.svg', size: 'small' as const, rotation: 5, delay: 0.4 }
-        ]
-    };
-
-    const buttons: ButtonContent[] = [
 
 
-
-        {
-            id: 'gamification',
-            title: 'Gamification',
-            description: 'Progress, educational games, and the best memorization formats',
-            image: '/media/screen1.png',
-            icons: <IconStack icons={iconData.gamification} />,
-            initial: { opacity: .3, y: 130 },
-            animate: { opacity: 1, y: 0 },
-            transition: { duration: 0.5, delay: 0.3 },
-            content: (
-                <div className="w-full relative">
-                    <img src='/media/learning/steps/content.svg' />
-
-
-                    <motion.div
-                        initial={{ y: 50, opacity: 0 }}
-                        animate={{
-                            y: 0,
-                            opacity: 1
-                        }}
-                        transition={{
-                            delay: .5,
-                            duration: 0.6
-                        }}
-                        style={{ position: "absolute" }}
-                        className='relative top-[32%] 
-                        left-[35%] xs1300:left-[33%] xs1500:left-[34%] xs1700:left-[35%] xs1900:left-[32%] 
-                        shadow-[0_7.35px_29.41px_0_rgba(149,157,175,0.2)] px-[2%] py-[1%] rounded-[18px] bg-white flex flex-col items-center gap-1.5'>
-
-                        <div className='flex items-center gap-[6px]'>
-                            <img src='/media/learning/steps/square.svg' />
-                            <p className='font-medium text-op1 text-[1vw]'>88 ayahs</p>
-                        </div>
-
-
-                        <p className='text-center font-semibold text-[1.1vw]'>AI-Qasas</p>
-
-                        <div className='absolute left-1/2 -translate-x-1/2
-                         top-full'>
-                            <svg width="22" height="15" viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M13.715 13.5453C12.5761 15.4687 9.79252 15.4687 8.65361 13.5452L0.735823 0.172985L21.6328 0.172983L13.715 13.5453Z" fill="white" />
-                            </svg>
-                        </div>
-
-                    </motion.div>
-                </div>
-            ),
-        },
-        {
-            id: 'deep-learning',
-            title: 'Deep Learning',
-            description: 'Advanced memorization techniques and cognitive enhancement',
-            image: '/media/screen2.png',
-            icons: <IconStack icons={iconData.deepLearning} />,
-            initial: { opacity: .3, scale: .8 },
-            animate: { opacity: 1, scale: 1 },
-            transition: { duration: 0.5, delay: 0.4 },
-            content: (
-                <div className="w-full flex justify-center">
-                    <div className='grid grid-cols-3 grid-rows-3 w-[60%] xs1500:w-[70%] xs1700:w-full max-w-[562px] gap-[32px] rotate-[3deg]'>
-                        {Array.from({ length: 9 }).map((_, index) =>
-                            <motion.div
-                                key={index}
-                                className='w-full aspect-square'
-                                initial={{ opacity: 0, scale: 0.5, y: 20 }}
-                                animate={{ opacity: 1, scale: 1, y: 0 }}
-                                exit={{
-                                    opacity: 0, scale: 0, y: -20, transition: {
-                                        type: 'spring',
-                                        stiffness: 100,
-                                        damping: 15,
-                                        delay: 0,
-                                        duration: 0.5,
-                                    }
-                                }}
-                                transition={{
-                                    type: 'spring',
-                                    stiffness: 100,
-                                    damping: 15,
-                                    delay: 0.05 * index,
-                                    duration: 0.3,
-                                }}
-                            >
-                                <img
-                                    style={{
-                                        boxShadow: "-19.21px 19.21px 38.7px -9.15px rgba(57,59,65,0.05)"
-                                    }}
-                                    className='w-full rounded-[30px] aspect-square'
-                                    src={`/media/learning/grid/${index + 1}.svg`}
-                                    loading="lazy"
-                                />
-                            </motion.div>
-                        )}
-                    </div>
-                </div>
-            ),
-        },
-        {
-            id: 'ai-tools',
-            title: 'AI Tools',
-            description: 'Intelligent assistance and personalized learning paths',
-            image: '/media/screen3.png',
-            icons: <IconStack icons={iconData.aiTools} />,
-            initial: { opacity: .3, y: -130 },
-            animate: { opacity: 1, y: 0 },
-            transition: { duration: 0.5, delay: 0.3 },
-            content: (
-                <div className="w-[70%] xs1500:w-[80%] xs1700:w-full flex items-center justify-center relative">
-                    <motion.img
-                        initial={{ scale: .5, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.5 }}
-                        className='absolute z-0'
-                        src='/media/learning/quran/bg.svg' />
-                    <div className='relative z-[10] rotate-[-3deg]'>
-                        <img
-                            className=''
-                            src='/media/learning/quran/page.svg' />
-
-                        <div className='absolute w-[70%] left-[50%] translate-x-[-50%] top-[61.5%] flex justify-center'>
-                            <motion.img
-                                initial={{ width: '0%' }}
-                                animate={{ width: '100%' }}
-                                transition={{ duration: 1, delay: 0.5 }}
-                                className='w-full'
-                                src='/media/learning/quran/line.svg'
-                            />
-                            <motion.img
-                                initial={{ scale: 0, opacity: 0 }}
-                                animate={{ scale: 1, opacity: 1 }}
-                                transition={{ duration: .4, delay: 0.5 }}
-                                className='absolute top-[50%] translate-y-[-50%] left-1/2 -translate-x-1/2'
-                                src='/media/learning/quran/ai.svg'
-                            />
-                        </div>
-
-                    </div>
-                </div>
-            ),
-        },
-    ];
 
     const nextSection = () => {
-        if (activeSection < buttons.length - 1) {
+        if (activeSection < BtnContents.length - 1) {
             setActiveSection((prev) => prev + 1);
             setExpandedButtons(new Set([activeSection + 1]));
         }
@@ -230,7 +243,7 @@ const LearningPath: React.FC = () => {
             <div ref={containerRef} className="w-full sticky top-0 h-screen bg-gradient-to-b from-[#FFFFFF] to-[#EEF0F6] flex items-center justify-center z-10">
                 <div className='w-full h-[200px] bg-gradient-to-b from-transparent to-white absolute bottom-full left-0' />
                 <div className="w-full max-w-[1920px] py-[100px]  mx-auto flex items-center justify-between">
-                    
+
                     <div className="flex mx-[20px] xs1167:mx-[40px] xs1300:mx-[80px] xs1500:mx-[120px] justify-between mr-[20px] xs1500:mr-[40px]">
                         <div className="relative flex items-center gap-[40px]">
                             <motion.div
@@ -250,16 +263,16 @@ const LearningPath: React.FC = () => {
                                 </motion.button>
                                 <motion.button
                                     onClick={nextSection}
-                                    disabled={activeSection === buttons.length - 1}
-                                    className={`bg-bg1 p-[18px] cursor-pointer rounded-full flex items-center justify-center transition-colors ${activeSection === buttons.length - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-bg1'}`}
-                                    whileHover={activeSection === buttons.length - 1 ? {} : { scale: 1.05 }}
-                                    whileTap={activeSection === buttons.length - 1 ? {} : { scale: 0.95 }}
+                                    disabled={activeSection === BtnContents.length - 1}
+                                    className={`bg-bg1 p-[18px] cursor-pointer rounded-full flex items-center justify-center transition-colors ${activeSection === BtnContents.length - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-bg1'}`}
+                                    whileHover={activeSection === BtnContents.length - 1 ? {} : { scale: 1.05 }}
+                                    whileTap={activeSection === BtnContents.length - 1 ? {} : { scale: 0.95 }}
                                 >
                                     <img src="/media/array.svg" className="w-[24px] h-[24px]" alt="Next" />
                                 </motion.button>
                             </motion.div>
                             <div className="flex flex-col gap-[20px] w-[350px] xs1500:w-[500px] relative">
-                                {buttons.map((button, index) => (
+                                {BtnContents.map((button, index) => (
                                     <motion.div
                                         key={button.id}
                                         initial={button.initial}
@@ -296,7 +309,7 @@ const LearningPath: React.FC = () => {
                                     transition={{ duration: 0.3, ease: 'easeOut', delay: 0 }}
                                     className="absolute inset-0 flex items-center justify-center"
                                 >
-                                    <div className="relative w-full h-full flex items-center justify-center">{buttons[activeSection].content}</div>
+                                    <div className="relative w-full h-full flex items-center justify-center">{BtnContents[activeSection].content(false)}</div>
                                 </motion.div>
                             </AnimatePresence>
                         </div>

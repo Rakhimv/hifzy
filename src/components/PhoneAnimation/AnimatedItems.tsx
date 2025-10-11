@@ -13,7 +13,7 @@ export const AnimatedItems = ({ showA3 }: any) => (
           <div key={index} className='w-[80px] xs1230:w-[100px] xs1500:w-[100px] xs1700:w-[120px] aspect-square flex items-center justify-center'>
             {item &&
               <div className='relative'>
-                <img className='shadow-[-7.61px_8.56px_40.73px_0px_#7d8085ab] rounded-[28px] xs1700:rounded-[35px]' src={`/media/popups/${item}.png`} />
+                <img className='shadow-[-7.61px_8.56px_40.73px_0px_#7d8085ab] rounded-[28px] xs1700:rounded-[35px]' src={`/media/popups/${item}.webp`} />
                 <div className={`pointer-events-none absolute inset-0 border-white/50 
                   border-[5px] xs1700:border-[7px] 
                   rounded-[28px] xs1700:rounded-[35px]  `} />
@@ -29,7 +29,7 @@ export const AnimatedItems = ({ showA3 }: any) => (
           <div key={index} className='w-[80px] xs1230:w-[100px] xs1500:w-[100px] xs1700:w-[120px] aspect-square flex items-center justify-center '>
             {item &&
               <div className='relative'>
-                <img className='shadow-[-7.61px_8.56px_40.73px_0px_#7d8085ab] rounded-[28px] xs1700:rounded-[35px]' src={`/media/popups/${item}.png`} />
+                <img className='shadow-[-7.61px_8.56px_40.73px_0px_#7d8085ab] rounded-[28px] xs1700:rounded-[35px]' src={`/media/popups/${item}.webp`} />
                 <div className={`pointer-events-none absolute inset-0 border-white/50 
                   border-[5px] xs1700:border-[7px] 
                   rounded-[28px] xs1700:rounded-[35px]  `} />

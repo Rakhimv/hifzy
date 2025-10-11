@@ -7,7 +7,7 @@ export const menuBlocks = [
         title: "Features",
         bgColor: "#8DC0B6",
         textColor: "text-white",
-        image: "/media/header/h1.png",
+        image: "/media/header/h1.webp",
         anchor: "features",
     },
     {
@@ -15,7 +15,7 @@ export const menuBlocks = [
         title: "Study process",
         bgColor: "#FAA259",
         textColor: "text-white",
-        image: "/media/header/h2.png",
+        image: "/media/header/h2.webp",
         anchor: "study-process",
     },
     {
@@ -23,7 +23,7 @@ export const menuBlocks = [
         title: "FAQ",
         bgColor: "#F5F3F7",
         textColor: "text-primary",
-        image: "/media/header/h3.svg",
+        image: "/media/header/h3.webp",
         anchor: "faq",
     },
 ];

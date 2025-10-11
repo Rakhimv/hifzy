@@ -10,10 +10,10 @@ import { motion } from 'framer-motion';
 import { useScroll } from '../../contexts/ScrollContext';
 
 export const SCREENSHOTS = [
-    '/media/screen1.png',
-    '/media/screen2.png',
-    '/media/screen3.png',
-    '/media/screen4.png',
+    '/media/screen1.webp',
+    '/media/screen2.webp',
+    '/media/screen3.webp',
+    '/media/screen4.webp',
 ];
 
 export const SCREEN_THRESHOLDS = [0.35, 0.50, 0.65, 0.80];

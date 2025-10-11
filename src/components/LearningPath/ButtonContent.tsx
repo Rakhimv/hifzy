@@ -8,7 +8,7 @@ interface ButtonContent {
     description: string;
     image: string;
     icons: React.ReactNode;
-    content: React.ReactNode;
+    content: any;
     initial: any,
     animate: any,
     transition: any,
