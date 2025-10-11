@@ -1,6 +1,6 @@
 import { HeaderSection } from "../HeaderSection"
 import { useRef, useEffect, useState } from "react"
-import { useScroll, useTransform, motion } from "framer-motion"
+import { useScroll,  motion } from "framer-motion"
 import PlayfulBlocks from "./PlayfulBlocks"
 
 const Playful = () => {
