@@ -51,6 +51,19 @@
 
 
 
+.glef {
+    @apply bg-white/20 backdrop-blur-md border border-white/20 shadow-lg;
+    background: linear-gradient(-45deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.3) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.glef2 {
+    @apply bg-black/20 backdrop-blur-md border border-white/20 shadow-lg;
+    background: linear-gradient(-45deg, rgba(0, 0, 0, 0.142) 0%, rgba(0, 0, 0, 0.033) 50%, rgba(0, 0, 0, 0.114) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
 
 @layer utilities {
     .xs700-btn-p {

@@ -11,11 +11,11 @@ const ChatBotTab: React.FC = () => (
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.5 }}
         className="
-          px-[20px] xs1700:px-[30px]
-          py-[15px] xs1700:py-[20px]
-          opacity-[.7] bg-black/10 rounded-[40px]"
+          px-[25px] xs1700:px-[30px]
+          py-[20px] xs1700:py-[20px]
+          opacity-[.7] bg-black/10 rounded-[30px] xs1700:rounded-[30px]"
       >
-        <p className="text-[18px] xs1700:text-[24px] text-white">Where was the Quran first revealed?</p>
+        <p className="text-[22px] xs1700:text-[24px] text-white/80">Where was the Quran first revealed?</p>
       </motion.div>
     </div>
     <div className="w-full flex justify-start">
@@ -26,12 +26,12 @@ const ChatBotTab: React.FC = () => (
         transition={{ duration: 0.5, delay: 0.2 }}
         style={{ transformOrigin: "left" }}
         className="
-          px-[20px] xs1700:px-[30px]
-          py-[15px] xs1700:py-[20px]
-        w-[80%] bg-black/10 rounded-[40px]"
+          px-[25px] xs1700:px-[30px]
+          py-[20px] xs1700:py-[20px]
+        w-[80%] bg-black/10 rounded-[30px] xs1700:rounded-[30px]"
       >
-        <p className="text-[18px] xs1700:text-[24px] text-white">
-          The Quran was revealed in a blessed and significant night, specifically the Night of Decree or Night of Power (Laylat al-Qadr) during the month of Ramadan.
+        <p className="text-[22px] xs1700:text-[24px] text-white/90">
+          the Quran was revealed in a blessed and significant night, specifically the Night of Decree or Night of Power (Laylat al-Qadr) during the month of Ramadan.
         </p>
       </motion.div>
     </div>
@@ -40,9 +40,11 @@ const ChatBotTab: React.FC = () => (
       whileInView={{ scale: 1, y: 0, opacity: 1 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.4, delay: 0.3 }}
-      className="bg-black/20 shadow-lg flex gap-[16px] items-center justify-center mt-[40px] 
-      py-[15px] px-[20px] xs1700:px-[30px]
-      rounded-[26px]"
+      className="
+      glef2
+      flex gap-[16px] items-center justify-center mt-[20px] xs1700:mt-[40px] 
+      py-[8px] xs1700:py-[15px] px-[20px] xs1700:px-[30px]
+      rounded-[20px] xs1700:rounded-[26px]"
     >
       <img src="/media/aipractice/ai.svg" className="w-[25px] opacity-[.7]" />
       <p className="text-[18px] xs1700:text-[24px] font-semibold text-[#ffffff] opacity-[.7]">Ask Hifzy AI a question</p>
@@ -58,7 +60,7 @@ const SpellCheckTab: React.FC = () => (
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.7, ease: "easeInOut" }}
-      className="text-white font-medium text-[35px] xs1700:text-[40px]"
+      className="text-white font-medium text-[35px] xs1700:text-[40px] xs1500:mt-[20px]"
     >
       Quran pages
     </motion.p>
@@ -67,19 +69,19 @@ const SpellCheckTab: React.FC = () => (
       whileInView={{ y: 0, scale: 1, opacity: 1 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="w-full flex flex-col items-end p-[20px] rounded-[40px] mt-[30px] xs1700:mt-[40px] bg-[#00000020] relative"
+      className="w-full flex flex-col items-end p-[20px] rounded-[40px] mt-[20px] xs1500:mt-[40px] xs1700:mt-[40px] bg-[#00000020] relative"
     >
       <p className="flex items-center justify-end 
       text-[35px] xs1700:text-[40px]
       gap-[10px] bg-gradient-to-r from-transparent from-[-40%] to-white to-[80%] text-transparent bg-clip-text">
         <Equalizer />
-        <span> ٱلْحَمْدُ</span>
-        <img className="w-[40px]" src="/media/aipractice/icon.svg" />
+        <span className="text-nowrap"> ٱلْحَمْدُ</span>
+        <img className="w-[40px] text-nowrap" src="/media/aipractice/icon.svg" />
         بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
       </p>
       <p className="
       text-[35px] xs1700:text-[40px]
-font-bold bg-gradient-to-r from-transparent to-white to-[150%] text-transparent bg-clip-text">
+font-bold bg-gradient-to-r from-transparent to-white to-[150%] text-transparent bg-clip-text text-nowrap">
         لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ
       </p>
     </motion.div>
@@ -91,7 +93,9 @@ font-bold bg-gradient-to-r from-transparent to-white to-[150%] text-transparent 
       className="
       h-[90px] xs1700:h-[120px]
       w-[90px] xs1700:w-[120px] 
-      rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-lg flex items-center justify-center mt-[40px]"
+      rounded-full
+      glef
+      flex items-center justify-center mt-[40px]"
     >
       <img src="/media/aipractice/micro.svg" />
     </motion.div>
@@ -162,7 +166,7 @@ const TabSection: React.FC = () => {
       py-[25px] xs1700:py-[40px] 
       px-[60px] s1700:px-[100px] 
 
-      aspect-[848/900] mt-[70px] rounded-[52px]  flex flex-col justify-between"
+      aspect-[848/900] mt-[50px] xs1900:mt-[70px] rounded-[52px]  flex flex-col justify-between"
       style={{
         "--color-from": tabsData[activeTab].bg[0],
         "--color-to": tabsData[activeTab].bg[1],
