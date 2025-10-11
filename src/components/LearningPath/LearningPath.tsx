@@ -55,7 +55,7 @@ export const BtnContents: ButtonContent[] = [
                     }}
                     style={{ position: "absolute" }}
                     className={`relative bg-white rounded-xl
-                        ${isMob ? `left-[35%] top-[42%] px-[20px] py-[14px]` : `top-[32%] left-[35%] xs1300:left-[33%] xs1500:left-[34%] xs1700:left-[35%] xs1900:left-[32%] 
+                        ${isMob ? `left-1/2 -translate-x-1/2 top-[42%] px-[20px] py-[14px]` : `top-[32%] left-[35%] xs1300:left-[33%] xs1500:left-[34%] xs1700:left-[35%] xs1900:left-[32%] 
                          px-[2%] py-[1%] rounded-[18px]`}
                         shadow-[0_7.35px_29.41px_0_rgba(149,157,175,0.2)]bg-white flex flex-col items-center xs1000:gap-1.5`}>
 
