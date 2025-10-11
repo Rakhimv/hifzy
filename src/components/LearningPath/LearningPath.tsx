@@ -83,17 +83,19 @@ const LearningPath: React.FC = () => {
                             duration: 0.6
                         }}
                         style={{ position: "absolute" }}
-                        className='relative top-[32%] left-[29%] shadow-[0_7.35px_29.41px_0_rgba(149,157,175,0.2)] px-[2%] py-[1%] rounded-[18px] bg-white flex flex-col items-center gap-1.5'>
+                        className='relative top-[32%] 
+                        left-[35%] xs1300:left-[33%] xs1500:left-[34%] xs1700:left-[35%] xs1900:left-[32%] 
+                        shadow-[0_7.35px_29.41px_0_rgba(149,157,175,0.2)] px-[2%] py-[1%] rounded-[18px] bg-white flex flex-col items-center gap-1.5'>
 
                         <div className='flex items-center gap-[6px]'>
                             <img src='/media/learning/steps/square.svg' />
-                            <p className='font-medium text-op1 text-[1vw]'>3 ayahs</p>
+                            <p className='font-medium text-op1 text-[1vw]'>88 ayahs</p>
                         </div>
 
 
-                        <p className='text-center font-semibold text-[1.1vw]'>The Divine Support</p>
+                        <p className='text-center font-semibold text-[1.1vw]'>AI-Qasas</p>
 
-                        <div className='absolute left-1/2 -translate-y-1/2
+                        <div className='absolute left-1/2 -translate-x-1/2
                          top-full'>
                             <svg width="22" height="15" viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M13.715 13.5453C12.5761 15.4687 9.79252 15.4687 8.65361 13.5452L0.735823 0.172985L21.6328 0.172983L13.715 13.5453Z" fill="white" />
@@ -224,7 +226,7 @@ const LearningPath: React.FC = () => {
     };
 
     return (
-        <div id="features" className='w-full relative h-[100vh]'>
+        <div id="features" className='w-full relative h-[200vh]'>
             <div ref={containerRef} className="w-full sticky top-0 h-screen bg-gradient-to-b from-[#FFFFFF] to-[#EEF0F6] flex items-center justify-center z-10">
                 <div className='w-full h-[200px] bg-gradient-to-b from-transparent to-white absolute bottom-full left-0' />
                 <div className="w-full max-w-[1920px] py-[100px]  mx-auto flex items-center justify-between">
