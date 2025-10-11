@@ -1,7 +1,8 @@
 import { HeaderSection } from "../HeaderSection"
 import { useRef, useEffect, useState } from "react"
-import { useScroll,  motion } from "framer-motion"
+import { useScroll, motion } from "framer-motion"
 import PlayfulBlocks from "./PlayfulBlocks"
+import { blocks } from "./Blocks"
 
 const Playful = () => {
     const ref = useRef(null)
@@ -17,23 +18,19 @@ const Playful = () => {
 
     useEffect(() => {
         return scrollYProgress.onChange((progress) => {
-            const newActiveBlocks = thresholds.map(threshold => progress >= threshold)
+            const newActiveBlocks = thresholds.map(threshold => progress > threshold)
             setActiveBlocks(newActiveBlocks)
-            setIsHeaderHidden(progress >= 0.1)
+            console.log(progress)
+            setIsHeaderHidden(progress > 0)
         })
     }, [scrollYProgress])
 
-    const blocks = [
-        { bg: "#F5F3F7", content: <div className="text-black font-bold text-3xl">Block 1</div> },
-        { bg: "linear-gradient(to bottom, #4D5159, #292B31)", content: <div className="text-white font-bold text-3xl">Block 2</div> },
-        { bg: "#8ECBB9", content: <div className="text-black font-bold text-3xl">Block 3</div> },
-        { bg: "linear-gradient(to bottom, #F9855A, #FDAA5F)", content: <div className="text-black font-bold text-3xl">Block 4</div> },
-    ]
+
 
     return (
         <div ref={ref} className="relative h-[400vh] bg-white">
             <div className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden">
-                <motion.div 
+                <motion.div
                     className="absolute top-[40px]"
                     animate={{
                         opacity: isHeaderHidden ? 0 : 1,

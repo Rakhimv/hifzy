@@ -40,7 +40,7 @@ export const AnimatedTextA1 = ({ showA1 }: { showA1: boolean }) => (
         border-[2px] border-[#E4E4E4] cursor-pointer outline-none 
         rounded-[18px] xs1000:rounded-[22px]
         transition-all duration-400
-        hover:bg-[#E4E4E4]
+        hover:bg-[#E4E4E4] hover:scale-105
         ">Read more</button>
     </div>
 

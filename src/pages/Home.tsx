@@ -5,8 +5,9 @@ import LearningPath from "../components/LearningPath/LearningPath"
 import AiPractice from "../components/AiPractice/AiPractice"
 import FAQ from "../components/FAQ/FAQ"
 import Footer from "../components/Footer"
-import Hero from "../components/Mobile/Hero"
+import Hero from "../components/Mobile/Hero/Hero"
 import Playful from "../components/Mobile/Playful/Playful"
+import Features from "../components/Mobile/Features/Features"
 
 const Home: React.FC = () => {
     return (
@@ -23,6 +24,7 @@ const Home: React.FC = () => {
                 <div className="pt-[120px] block xs1000:hidden">
                     <Hero />
                     <Playful />
+                    <Features />
                 </div>
                 <Footer />
                 <InnerW />

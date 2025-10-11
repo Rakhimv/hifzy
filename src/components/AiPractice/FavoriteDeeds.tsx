@@ -100,8 +100,8 @@ const FavoriteDeeds: React.FC = () => {
                                     opacity: 0
                                 }}
                                 animate={{
-                                    display: "block",
-                                    opacity: 1
+                                    display: isVisibleTitle ? "block" : "hidden",
+                                    opacity: isVisibleTitle ? 1 : 0
                                 }}
                                 transition={{
                                     duration: 1,
@@ -118,7 +118,7 @@ const FavoriteDeeds: React.FC = () => {
                                     opacity: 1
                                 }}
                                 animate={{
-                                    opacity: 0
+                                    opacity: isVisibleTitle ? 0 : 1
                                 }}
                                 transition={{
                                     duration: 0.4,
@@ -131,7 +131,7 @@ const FavoriteDeeds: React.FC = () => {
                                     opacity: 1
                                 }}
                                 animate={{
-                                    opacity: 0
+                                    opacity: isVisibleTitle ? 0 : 1
                                 }}
                                 transition={{
                                     duration: 0.4,
@@ -189,7 +189,7 @@ const FavoriteDeeds: React.FC = () => {
                 animate={{ opacity: isVisibleButton ? 1 : 0, y: isVisibleButton ? 0 : 20 }}
                 transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
                 ref={buttonRef}
-                className="relative text-[30px] xs1700:text-[34px] inline-block h-max rounded-[22px] overflow-hidden transition-all duration-400"
+                className="relative text-[30px] xs1700:text-[34px] inline-block h-max rounded-[22px] overflow-hidden transition-all duration-400 hover:scale-105"
             >
                 <button
                     className="relative 

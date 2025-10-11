@@ -4,7 +4,13 @@ const PlayfulBlocks = ({
     blocks,
     activeBlocks,
 }: {
-    blocks: { bg: string; content: React.ReactNode }[]
+    blocks: {
+        title: string,
+        sub: string,
+        subcolor: string,
+        bg: string;
+        content: React.ReactNode
+    }[]
     activeBlocks: boolean[]
 }) => {
     const targetYPositions = [-20, 20, 60, 100]
@@ -23,9 +29,22 @@ const PlayfulBlocks = ({
                                 ease: "linear",
                                 opacity: { duration: 0.3, ease: "linear" }
                             }}
-                            style={{ background: block.bg }}
-                            className="absolute w-[388px] aspect-[388/400] rounded-2xl flex items-center justify-center shadow-xl"
+                            style={{ background: block.bg, position: "absolute" }}
+                            className="relative max-w-[400px] w-[90%] aspect-[388/400] rounded-2xl flex items-center shadow-xl flex-col overflow-hidden"
                         >
+                            <p
+                                style={{
+                                    fontSize: "clamp(16px, 8vw, 38px)"
+                                }}
+                                className={`
+                                capitalize font-medium mt-[8%]
+                            ${i === 0 ? "text-primary" : "text-white"}`}>{block.title}</p>
+                            <p
+                                style={{
+                                    color: block.subcolor,
+                                    fontSize: "clamp(12px, 4vw, 19px)"
+                                }}
+                                className="text-[#C5C3C9] max-w-[58%] text-center">{block.sub}</p>
                             {block.content}
                         </motion.div>
                     )}
