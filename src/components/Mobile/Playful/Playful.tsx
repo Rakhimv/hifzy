@@ -1,29 +1,29 @@
 import { HeaderSection } from "../HeaderSection"
-import { useRef, useEffect, useState } from "react"
+import { useRef, useState } from "react"
 import { useScroll, motion } from "framer-motion"
 import PlayfulBlocks from "./PlayfulBlocks"
 import { blocks } from "./Blocks"
+import { useMotionValueEvent } from "framer-motion"; 
+
+
 
 const Playful = () => {
-    const ref = useRef(null)
+    const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ["start start", "end end"],
-    })
+    });
 
-    const [activeBlocks, setActiveBlocks] = useState([false, false, false, false])
-    const [isHeaderHidden, setIsHeaderHidden] = useState(false)
+    const [activeBlocks, setActiveBlocks] = useState([false, false, false, false]);
+    const [isHeaderHidden, setIsHeaderHidden] = useState(false);
 
-    const thresholds = [0, 0.25, 0.5, 0.75]
+    const thresholds = [0, 0.25, 0.5, 0.75];
 
-    useEffect(() => {
-        return scrollYProgress.onChange((progress) => {
-            const newActiveBlocks = thresholds.map(threshold => progress > threshold)
-            setActiveBlocks(newActiveBlocks)
-            console.log(progress)
-            setIsHeaderHidden(progress > 0)
-        })
-    }, [scrollYProgress])
+    useMotionValueEvent(scrollYProgress, "change", (progress) => {
+        const newActiveBlocks = thresholds.map(threshold => progress > threshold);
+        setActiveBlocks(newActiveBlocks);
+        setIsHeaderHidden(progress > 0);
+    });
 
 
 

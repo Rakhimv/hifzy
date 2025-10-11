@@ -13,7 +13,7 @@ const PlayfulBlocks = ({
     }[]
     activeBlocks: boolean[]
 }) => {
-    const targetYPositions = [-20, 20, 60, 100]
+    const targetYPositions = [-60, -20, 20, 60]
 
     return (
         <>
