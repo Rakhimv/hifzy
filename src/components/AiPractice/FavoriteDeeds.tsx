@@ -189,7 +189,7 @@ const FavoriteDeeds: React.FC = () => {
                 animate={{ opacity: isVisibleButton ? 1 : 0, y: isVisibleButton ? 0 : 20 }}
                 transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
                 ref={buttonRef}
-                className="relative text-[30px] xs1700:text-[34px] inline-block h-max rounded-[22px] overflow-hidden"
+                className="relative text-[30px] xs1700:text-[34px] inline-block h-max rounded-[22px] overflow-hidden transition-all duration-400"
             >
                 <button
                     className="relative 

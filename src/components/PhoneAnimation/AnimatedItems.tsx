@@ -15,7 +15,7 @@ export const AnimatedItems = ({ showA3 }: any) => (
               <div className='relative'>
                 <img className='shadow-[-7.61px_8.56px_40.73px_0px_#7d8085ab] rounded-[28px] xs1700:rounded-[35px]' src={`/media/popups/${item}.png`} />
                 <div className={`pointer-events-none absolute inset-0 border-white/50 
-                  border-[5px] xs1700:border-[8px] 
+                  border-[5px] xs1700:border-[7px] 
                   rounded-[28px] xs1700:rounded-[35px]  `} />
               </div>
             }
@@ -31,7 +31,7 @@ export const AnimatedItems = ({ showA3 }: any) => (
               <div className='relative'>
                 <img className='shadow-[-7.61px_8.56px_40.73px_0px_#7d8085ab] rounded-[28px] xs1700:rounded-[35px]' src={`/media/popups/${item}.png`} />
                 <div className={`pointer-events-none absolute inset-0 border-white/50 
-                  border-[5px] xs1700:border-[8px] 
+                  border-[5px] xs1700:border-[7px] 
                   rounded-[28px] xs1700:rounded-[35px]  `} />
               </div>
             }

@@ -32,7 +32,7 @@ const getConfigByResolution = (width: number) => {
       return CONFIGS[thresh];
     }
   }
-  return CONFIGS[1536];
+  return CONFIGS[1500];
 };
 
 export const useScrollProgress = (ref: RefObject<HTMLDivElement | null>) => {

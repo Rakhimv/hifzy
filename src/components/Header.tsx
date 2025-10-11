@@ -170,7 +170,7 @@ const Header = () => {
         >
             <div
                 className={`max-w-[1542px] w-full ${lastScrollY < 400 && !isMobileMenuOpen ? "" : ""
-                    } bg-white ${isMobileMenuOpen ? "rounded-[32px]" : "rounded-[32px]"} transition-all mx-auto relative`}
+                    } xs1000:bg-white ${isMobileMenuOpen ? "rounded-[32px]" : "rounded-[32px]"} transition-all mx-auto relative`}
             >
                 <div className="p-[24px] xs1000:p-[30px] xs1550:p-[40px] flex w-full justify-between">
                     <div className="flex items-center w-full rounded-[36px] bg-[#F5F5F6] xs1000:bg-transparent xs1000:w-auto justify-between px-[24px] py-[20px] xs1000:rounded-none xs1000:px-0 xs1000:py-0">

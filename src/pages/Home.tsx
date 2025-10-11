@@ -6,6 +6,7 @@ import AiPractice from "../components/AiPractice/AiPractice"
 import FAQ from "../components/FAQ/FAQ"
 import Footer from "../components/Footer"
 import Hero from "../components/Mobile/Hero"
+import Playful from "../components/Mobile/Playful/Playful"
 
 const Home: React.FC = () => {
     return (
@@ -19,8 +20,9 @@ const Home: React.FC = () => {
                     <FAQ />
                 </div>
 
-                <div className="block xs1000:hidden">
+                <div className="pt-[120px] block xs1000:hidden">
                     <Hero />
+                    <Playful />
                 </div>
                 <Footer />
                 <InnerW />

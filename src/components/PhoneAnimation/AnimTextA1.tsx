@@ -20,13 +20,15 @@ export const AnimatedTextA1 = ({ showA1 }: { showA1: boolean }) => (
 
 
     <div className="flex mt-[32px] gap-[16px] text-[16px] xs1000:text-[22px]">
-      <div className="relative inline-block h-max rounded-[15px] xs1000:rounded-[22px] overflow-hidden">
+      <div className="relative inline-block h-max rounded-[15px] xs1000:rounded-[22px] overflow-hidden hover:scale-105 transition-all duration-400">
         <button className="relative 
         px-[18px] py-[12px]
         xs1000:px-[25px] xs1000:py-[15px] 
         xs1700:px-[32px] xs1700:py-[20px] 
         cursor-pointer outline-none 
-        rounded-[18px] xs1000:rounded-[22px] text-white bg-gradient-to-b from-[#90C6B6] to-[#7BAF9D] shadow-[inset_0_0_15px_2px_rgba(255,255,255,0.73)]">
+        rounded-[18px] xs1000:rounded-[22px] text-white bg-gradient-to-b from-[#90C6B6] to-[#7BAF9D] shadow-[inset_0_0_15px_2px_rgba(255,255,255,0.73)]
+        
+        ">
           <p className="z-[3] relative">Start using</p>
         </button>
         <div className="absolute z-2 left-1/2 -translate-x-1/2 -translate-y-2 w-[80%] h-[50px] rounded-full bg-[#A9FCE2] blur-xl opacity-[1]"></div>
@@ -36,7 +38,10 @@ export const AnimatedTextA1 = ({ showA1 }: { showA1: boolean }) => (
         xs1000:px-[25px] xs1000:py-[15px] 
         xs1700:px-[32px] xs1700:py-[20px]
         border-[2px] border-[#E4E4E4] cursor-pointer outline-none 
-        rounded-[18px] xs1000:rounded-[22px]">Read more</button>
+        rounded-[18px] xs1000:rounded-[22px]
+        transition-all duration-400
+        hover:bg-[#E4E4E4]
+        ">Read more</button>
     </div>
 
 

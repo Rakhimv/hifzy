@@ -66,7 +66,7 @@ export const AnimatedPhone = ({ currentScreenshot, direction, anim, scrollProgre
     for (const thresh of thresholds) {
       if (width >= thresh) return CONFIGS[thresh];
     }
-    return CONFIGS[1536];
+    return CONFIGS[1500];
   };
 
 
