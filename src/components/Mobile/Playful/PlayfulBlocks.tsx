@@ -26,10 +26,15 @@ const PlayfulBlocks = ({
                             exit={{ y: targetYPositions[i] + 300, opacity: 0 }}
                             transition={{
                                 duration: 1,
-                                ease: "linear",
-                                opacity: { duration: 0.3, ease: "linear" }
+                                ease: [0.25, 0.46, 0.45, 0.94],
+                                delay: i * 0.1,
+                                opacity: { duration: 0.2 }
                             }}
-                            style={{ background: block.bg, position: "absolute" }}
+                            style={{
+                                background: block.bg,
+                                position: "absolute",
+                                willChange: "transform, opacity"
+                            }}
                             className="relative max-w-[400px] w-[90%] aspect-[388/400] rounded-2xl flex items-center shadow-xl flex-col overflow-hidden"
                         >
                             <p
