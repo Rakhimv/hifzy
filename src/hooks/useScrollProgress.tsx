@@ -2,18 +2,18 @@ import { useEffect, useState, type RefObject } from 'react';
 import { useScroll, useTransform, MotionValue } from 'framer-motion';
 
 type Config = {
-  top: number[];
+  top: any[];
 };
 
 const CONFIGS: Record<number, Config> = {
   1000: {
-    top: [170, 160],
+    top: ["25vh", "10vh"],
   },
   1300: {
-    top: [170, 160],
+    top: ["22vh", "24vh"],
   },
-  1536: {
-    top: [200, 108],
+  1500: {
+    top: ["25vh", "10vh"],
   },
   1700: {
     top: [170, 148],

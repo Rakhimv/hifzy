@@ -34,22 +34,22 @@ export const AnimatedPhone = ({ currentScreenshot, direction, anim, scrollProgre
       exit: { rotateX: 0, scale: 1, opacity: 0, y: -250 },
     },
     1396: {
-      initial: { y: 550, rotateX: 55, scale: 2.2 },
+      initial: { y: 550, rotateX: 55, scale: 2 },
       anim1: { rotateX: 0, scale: 1, y: 200 },
       anim2: { rotateX: 0, scale: 1, y: 0 },
       exit: { rotateX: 0, scale: 1, opacity: 0, y: -250 },
     },
-    1536: {
-      initial: { y: 550, rotateX: 55, scale: 2 },
-      anim1: { rotateX: 0, scale: 1, y: 170 },
+    1500: {
+      initial: { y: 650, rotateX: 55, scale: 2.1 },
+      anim1: { rotateX: 0, scale: 1, y: 230 },
       anim2: { rotateX: 0, scale: 1, y: 0 },
       exit: { rotateX: 0, scale: 1, opacity: 0, y: -250 },
     },
     1700: {
-      initial: { y: 700, rotateX: 55, scale: 2 },
+      initial: { y: 700, rotateX: 55, scale: 2.2 },
       anim1: { rotateX: 0, scale: 1, y: 270 },
       anim2: { rotateX: 0, scale: 1, y: 0 },
-      exit: { rotateX: 0, scale: 1, opacity: 0, y: -300 },
+      exit: { rotateX: 0, scale: 1, opacity: 0, y: -400 },
     },
     1920: {
       initial: { y: 700, rotateX: 55, scale: 2.2 },
@@ -87,7 +87,7 @@ export const AnimatedPhone = ({ currentScreenshot, direction, anim, scrollProgre
       className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 [perspective:500px] [transform-style:preserve-3d] [will-change:transform] phone-container pointer-events-none"
     >
       <motion.div
-        className="z-10 relative w-[250px] xs1300:w-[300px] xs1700:w-[350px] aspect-[430/888]"
+        className="z-10 relative w-[250px] xs1300:w-[300px] xs1500:w-[320px] xs1700:w-[350px] aspect-[430/888]"
         initial={deviceConfig.initial}
         animate={
           scrollProgress > 0.9
