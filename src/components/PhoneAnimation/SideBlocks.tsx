@@ -65,7 +65,7 @@ export const SideBlocks = ({ currentScreenshot, scrollProgress, style }: SideBlo
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{
                                     opacity: 0, y: -50, transition: {
-                                        duration: 0.6,
+                                        duration: 0.8,
                                         ease: "easeInOut"
                                     }
                                 }}

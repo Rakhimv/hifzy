@@ -15,12 +15,12 @@
 <feBlend mode="normal" in2="shape" result="effect1_innerShadow_90_675"/>
 </filter>
 <linearGradient id="paint0_linear_90_675" x1="26.1123" y1="45.3889" x2="26.1123" y2="3.34031e-05" gradientUnits="userSpaceOnUse">
-<stop stop-color="#FD6E45"/>
-<stop offset="1" stop-color="#F69366"/>
+<stop stop-color="#9BCEBF"/>
+<stop offset="1" stop-color="#75E5C4"/>
 </linearGradient>
 <linearGradient id="paint1_linear_90_675" x1="26.1123" y1="45.3889" x2="26.1123" y2="3.34031e-05" gradientUnits="userSpaceOnUse">
-<stop stop-color="#FD6E45"/>
-<stop offset="1" stop-color="#F69366"/>
+<stop stop-color="#9BCEBF"/>
+<stop offset="1" stop-color="#75E5C4"/>
 </linearGradient>
 </defs>
 </svg>

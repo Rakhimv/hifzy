@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { menuBlocks } from "./Header"
+import { AppStore, GooglePlay, menuBlocks } from "./Header"
 import { FaArrowRight } from "react-icons/fa"
 
 const Footer = () => {
@@ -66,8 +66,8 @@ const Footer = () => {
                         <div className="w-full flex justify-center ">
                             <div >
                                 <div className="flex flex-col pl-[20px]">
-                                    <p className="text-primary font-semibold text-[32px] mt-[20px]">Media</p>
-                                    <div className="flex flex-col text-op1 mt-[10px] text-[24px] font-medium gap-[20px]">
+                                    <p className="text-primary font-semibold text-[28px] mt-[20px]">Media</p>
+                                    <div className="flex flex-col text-op1 mt-[20px] text-[20px] font-medium gap-[20px]">
                                         <p>Name of Article</p>
                                         <p>Name of Article</p>
                                         <p>Name of Article</p>
@@ -75,7 +75,13 @@ const Footer = () => {
                                 </div>
 
                                 <motion.button
-                                    className="px-[24px] h-[68px] py-[20px] rounded-[20px] font-medium cursor-pointer text-primary text-2xl bg-secondary outline-none hover:bg-primary hover:text-white transition-colors duration-200 mt-[20px] flex items-center gap-[10px]"
+                                    className="
+                                btn
+                                    rounded-[20px] font-medium 
+                                    cursor-pointer text-primary 
+                                    text-[20px]!
+                                    bg-secondary outline-none hover:bg-primary 
+                                    hover:text-white transition-colors duration-200 mt-[20px] flex items-center gap-[10px]"
 
                                     transition={{ duration: 0.2 }}
                                 >
@@ -94,23 +100,8 @@ const Footer = () => {
 
 
                     <div className="w-max flex mt-[60px] flex-row gap-[16px]">
-                        <motion.button
-                            className="px-[24px] h-[68px] py-[20px] rounded-[20px] font-medium cursor-pointer bg-primary text-white text-2xl outline-none flex items-center justify-center transition-colors duration-200"
-
-                            transition={{ duration: 0.2 }}
-                        >
-                            Hifzy for IOS
-                            <img src="/media/appstore.svg" className="ml-[12px] w-[24px]" />
-                        </motion.button>
-
-                        <motion.button
-                            className="px-[24px] h-[68px] py-[20px] rounded-[20px] font-medium cursor-pointer bg-secondary text-primary text-2xl outline-none flex items-center justify-center transition-colors duration-200"
-
-                            transition={{ duration: 0.2 }}
-                        >
-                            Hifzy for Android
-                            <img src="/media/googleplay.svg" className="ml-[12px] w-[24px]" />
-                        </motion.button>
+                        <AppStore />
+                        <GooglePlay />
                     </div>
 
 

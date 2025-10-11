@@ -12,7 +12,12 @@ export const AnimatedItems = ({ showA3 }: any) => (
         {["", "i1", "i2", "", "", "i3"].map((item, index) => (
           <div key={index} className='w-[80px] xs1230:w-[100px] xs1500:w-[100px] xs1700:w-[120px] aspect-square flex items-center justify-center'>
             {item &&
-              <img className='shadow-[-7.61px_8.56px_40.73px_0px_#7d8085ab] rounded-[28px] xs1700:rounded-[35px]' src={`/media/popups/${item}.png`} />
+              <div className='relative'>
+                <img className='shadow-[-7.61px_8.56px_40.73px_0px_#7d8085ab] rounded-[28px] xs1700:rounded-[35px]' src={`/media/popups/${item}.png`} />
+                <div className={`pointer-events-none absolute inset-0 border-white/50 
+                  border-[5px] xs1700:border-[8px] 
+                  rounded-[28px] xs1700:rounded-[35px]  `} />
+              </div>
             }
           </div>
         ))}
@@ -23,7 +28,12 @@ export const AnimatedItems = ({ showA3 }: any) => (
         {["i4", "", "", "i5", "i6", "",].map((item, index) => (
           <div key={index} className='w-[80px] xs1230:w-[100px] xs1500:w-[100px] xs1700:w-[120px] aspect-square flex items-center justify-center '>
             {item &&
-              <img className='shadow-[-7.61px_8.56px_40.73px_0px_#7d8085ab] rounded-[28px] xs1700:rounded-[35px]' src={`/media/popups/${item}.png`} />
+              <div className='relative'>
+                <img className='shadow-[-7.61px_8.56px_40.73px_0px_#7d8085ab] rounded-[28px] xs1700:rounded-[35px]' src={`/media/popups/${item}.png`} />
+                <div className={`pointer-events-none absolute inset-0 border-white/50 
+                  border-[5px] xs1700:border-[8px] 
+                  rounded-[28px] xs1700:rounded-[35px]  `} />
+              </div>
             }
           </div>
         ))}

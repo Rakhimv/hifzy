@@ -81,6 +81,7 @@ const FavoriteDeeds: React.FC = () => {
                             first verse now
                         </motion.p>
 
+
                         <motion.div
                             initial={{ x: -550, rotate: -180 }}
                             animate={{
@@ -90,29 +91,76 @@ const FavoriteDeeds: React.FC = () => {
                             transition={{ duration: 0.8, ease: [0.69, 0.4, 0.18, 0.69] }}
                             className="relative"
                         >
-                            <img src="/media/aipractice/hourglass.svg" />
-                            <motion.img
-                                initial={{ top: "7%", scale: 1, scaleX: 1 }}
-                                animate={{
-                                    top: isVisibleTitle ? "17%" : "7%",
-                                    scale: isVisibleTitle ? 0.4 : 1,
-                                    scaleX: isVisibleTitle ? 1.5 : 1,
+
+
+                            <motion.div
+                                className="absolute"
+                                initial={{
+                                    display: "hidden",
+                                    opacity: 0
                                 }}
-                                transition={{ duration: 0.4, delay: 1, ease: "easeInOut" }}
-                                className="absolute top-[7%] left-1/2 -translate-x-1/2"
-                                src="/media/aipractice/h1.svg"
-                            />
-                            <motion.img
-                                initial={{ bottom: "20%", opacity: 0, scaleY: 0.4 }}
                                 animate={{
-                                    bottom: isVisibleTitle ? "7%" : "20%",
-                                    opacity: isVisibleTitle ? 1 : 0,
-                                    scaleY: isVisibleTitle ? 1 : 0.4,
+                                    display: "block",
+                                    opacity: 1
                                 }}
-                                transition={{ duration: 0.4, delay: 1.1, ease: "easeInOut" }}
-                                className="absolute bottom-[7%] left-1/2 -translate-x-1/2"
-                                src="/media/aipractice/h2.svg"
-                            />
+                                transition={{
+                                    duration: 1,
+                                    delay: 1.8
+                                }}
+                            >
+                                <img src="/media/aipractice/hfinal.svg" />
+                            </motion.div>
+
+
+
+                            <motion.img
+                                initial={{
+                                    opacity: 1
+                                }}
+                                animate={{
+                                    opacity: 0
+                                }}
+                                transition={{
+                                    duration: 0.4,
+                                    delay: 2.8
+                                }}
+                                src="/media/aipractice/hourglass.svg" />
+
+                            <motion.div
+                                initial={{
+                                    opacity: 1
+                                }}
+                                animate={{
+                                    opacity: 0
+                                }}
+                                transition={{
+                                    duration: 0.4,
+                                    delay: 2.8
+                                }}
+                            >
+                                <motion.img
+                                    initial={{ top: "7%", scale: 1, scaleX: 1 }}
+                                    animate={{
+                                        top: isVisibleTitle ? "17%" : "7%",
+                                        scale: isVisibleTitle ? 0.4 : 1,
+                                        scaleX: isVisibleTitle ? 1.5 : 1,
+                                    }}
+                                    transition={{ duration: 0.4, delay: 1, ease: "easeInOut" }}
+                                    className="absolute top-[7%] left-1/2 -translate-x-1/2"
+                                    src="/media/aipractice/h1.svg"
+                                />
+                                <motion.img
+                                    initial={{ bottom: "20%", opacity: 0, scaleY: 0.4 }}
+                                    animate={{
+                                        bottom: isVisibleTitle ? "3%" : "20%",
+                                        opacity: isVisibleTitle ? 1 : 0,
+                                        scaleY: isVisibleTitle ? 1 : 0.4,
+                                    }}
+                                    transition={{ duration: 0.4, delay: 1.1, ease: "easeInOut" }}
+                                    className="absolute bottom-[7%] left-1/2 -translate-x-1/2"
+                                    src="/media/aipractice/h2.svg"
+                                />
+                            </motion.div>
                         </motion.div>
                     </motion.div>
                 </div>
@@ -151,7 +199,7 @@ const FavoriteDeeds: React.FC = () => {
                     <p className="z-[3]">Get Started</p>
                     <img src="/media/aipractice/array2.svg" />
                 </button>
-                <div className="absolute z-2 left-1/2 -translate-x-1/2 -translate-y-2 w-[100%] h-[50px] rounded-full bg-[#A9FCE2] blur-xl opacity-[1]"></div>
+                <div className="absolute z-2 left-1/2 -translate-x-1/2 -translate-y-2 w-[80%] h-[50px] rounded-full bg-[#A9FCE2] blur-xl opacity-[1]"></div>
             </motion.div>
 
 
@@ -209,7 +257,7 @@ const FavoriteDeeds: React.FC = () => {
                 </motion.div>
             </div>
 
-        </div>
+        </div >
     );
 };
 

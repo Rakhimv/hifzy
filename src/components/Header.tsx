@@ -28,6 +28,57 @@ export const menuBlocks = [
     },
 ];
 
+
+
+export const GooglePlay: React.FC = () => (
+    <button
+        className="
+            btn group
+            rounded-[20px] font-medium cursor-pointer bg-secondary text-primary outline-none flex transition-colors duration-400 items-center
+            hover:bg-primary hover:text-white relative"
+    >
+        Hifzy for Android
+        <span className="ml-[12px] w-[24px] h-[24px] relative">
+            <img
+                src="/media/googleplay.svg"
+                className="w-[24px] h-[24px] absolute transition-opacity duration-400 ease-in-out group-hover:opacity-0"
+                alt="Google Play"
+            />
+            <img
+                src="/media/googleplay-hover.svg"
+                className="w-[24px] h-[24px] absolute transition-opacity duration-400 ease-in-out opacity-0 group-hover:opacity-100"
+                alt="Google Play Hover"
+            />
+        </span>
+    </button>
+);
+
+export const AppStore: React.FC = () => (
+    <button
+        className="
+            btn group
+            rounded-[20px] font-medium cursor-pointer bg-primary text-white outline-none flex transition-colors duration-400 items-center
+            hover:bg-secondary hover:text-primary relative"
+    >
+        Hifzy for iOS
+        <span className="ml-[12px] w-[24px] h-[24px] relative">
+            <img
+                src="/media/appstore.svg"
+                className="w-[24px] h-[24px] absolute transition-opacity duration-400 ease-in-out group-hover:opacity-0"
+                alt="App Store"
+            />
+            <img
+                src="/media/appstore-hover.svg"
+                className="w-[24px] h-[24px] absolute transition-opacity duration-400 ease-in-out opacity-0 group-hover:opacity-100"
+                alt="App Store Hover"
+            />
+        </span>
+    </button>
+);
+
+
+
+
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
@@ -44,23 +95,19 @@ const Header = () => {
         let ticking = false;
 
         const handleScroll = () => {
+            if (isProgrammaticScroll) {
+                setIsScrolled(true)
+                return;
+            }
+
             if (!ticking) {
                 requestAnimationFrame(() => {
                     const currentScrollY = window.scrollY;
 
-                    if (isProgrammaticScroll) {
+                    if (currentScrollY < lastScrollY) {
                         setIsScrolled(false);
-                        setLastScrollY(currentScrollY);
-                        ticking = false;
-                        return;
-                    }
-
-
-                    if (currentScrollY < 100) {
-                        setIsScrolled(false);
-                    } else if (currentScrollY >= 100) {
+                    } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
                         setIsScrolled(true);
-                        setIsMobileMenuOpen(false);
                     }
 
                     setLastScrollY(currentScrollY);
@@ -75,6 +122,11 @@ const Header = () => {
     }, [lastScrollY, isProgrammaticScroll]);
 
     const scrollToSection = (anchor: string) => {
+        if (isProgrammaticScroll) {
+            setIsScrolled(true)
+            return;
+        }
+
         setIsProgrammaticScroll(true);
         setIsMobileMenuOpen(false);
 
@@ -90,7 +142,10 @@ const Header = () => {
                 immediate: false,
                 lock: true,
                 onComplete: () => {
-                    setIsProgrammaticScroll(false);
+
+                    setTimeout(() => {
+                        setIsProgrammaticScroll(false);
+                    }, 200);
                 },
             });
         } else if (element) {
@@ -101,13 +156,16 @@ const Header = () => {
                 top: elementPosition,
                 behavior: "smooth",
             });
-            setTimeout(() => setIsProgrammaticScroll(false), 1200);
+
+            setTimeout(() => setIsProgrammaticScroll(false), 1500);
+        } else {
+            setIsProgrammaticScroll(false);
         }
     };
 
     return (
         <header
-            className={`xs1000:fixed top-0 left-0 right-0 z-[50] w-full transition-all duration-300 ${isScrolled ? "opacity-0 -translate-y-full" : "opacity-100 translate-y-0"
+            className={`fixed top-0 left-0 right-0 z-[50] w-full transition-all duration-300 ${isScrolled ? "opacity-0 -translate-y-full" : "opacity-100 translate-y-0"
                 }`}
         >
             <div
@@ -154,13 +212,11 @@ const Header = () => {
                                     key={index}
                                     onClick={() => scrollToSection(item.anchor)}
                                     className="
-                                        px-[16px] h-[50px] 
-                                        xs1230:px-[24px] xs1230:h-[60px] xs1230:py-[20px] 
-                                        xs1550:px-[24px] xs1550:h-[68px] xs1550:py-[20px]
+                                     btn
                                         flex items-center 
                                         rounded-[20px] font-medium cursor-pointer 
                                         text-primary text-xl xs1230:text-2xl bg-secondary outline-none
-                                         hover:bg-primary hover:text-white transition-colors duration-200"
+                                         hover:bg-primary hover:text-white transition-colors duration-400"
                                 >
                                     {item.text}
                                 </button>
@@ -174,31 +230,10 @@ const Header = () => {
                             : "opacity-100 transform translate-x-0"
                             }`}
                     >
-                        <button className="
-                            px-[20px] h-[50px]
-                            xs1230:px-[24px] xs1230:h-[60px] xs1230:py-[20px] 
-                            xs1550:px-[24px] xs1550:h-[68px] xs1550:py-[20px] 
-                            rounded-[20px] font-medium cursor-pointer bg-secondary text-primary text-xl xs1230:text-2xl outline-none flex transition-colors duration-200 items-center">
-                            Hifzy for Android
-                            <img
-                                src="/media/googleplay.svg"
-                                className="ml-[12px] w-[24px]"
-                                alt="Google Play"
-                            />
-                        </button>
 
-                        <button className="
-                            px-[20px] h-[50px]
-                            xs1230:px-[24px] xs1230:h-[60px] xs1230:py-[20px] 
-                            xs1550:px-[24px] xs1550:h-[68px] xs1550:py-[20px] 
-                            rounded-[20px] font-medium cursor-pointer bg-primary text-white text-xl xs1230:text-2xl outline-none flex transition-colors duration-200 items-center">
-                            Hifzy for iOS
-                            <img
-                                src="/media/appstore.svg"
-                                className="ml-[12px] w-[24px]"
-                                alt="App Store"
-                            />
-                        </button>
+                        <GooglePlay />
+                        <AppStore />
+
                     </div>
                 </div>
             </div>

@@ -24,15 +24,22 @@ const FAQ: React.FC = () => {
 
     const scrollToBottom = () => {
         if (messagesContainerRef.current) {
+            // Проверяем, что контейнер находится в видимой области
+            const containerRect = messagesContainerRef.current.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            
+            // Если контейнер уже виден, не скроллим
+            if (containerRect.top >= 0 && containerRect.bottom <= viewportHeight) {
+                return;
+            }
 
             messagesContainerRef.current.scrollIntoView({
                 behavior: 'smooth',
                 block: 'end'
             });
-
-
         }
     };
+
 
     const handleQuestionClick = (question: string, answer: string) => {
         const userMessageId = messageId;

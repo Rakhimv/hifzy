@@ -65,6 +65,14 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 
+
+.btn {
+    @apply px-[20px] h-[50px] 
+    xs1230:px-[24px] xs1230:h-[60px] xs1230:py-[20px] 
+    xs1550:px-[24px] xs1550:h-[68px] xs1550:py-[20px] 
+    text-xl xs1230:text-2xl;
+}
+
 @layer utilities {
     .xs700-btn-p {
         @apply px-[32px] py-[20px];

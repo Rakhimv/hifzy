@@ -29,7 +29,7 @@ export const AnimatedTextA1 = ({ showA1 }: { showA1: boolean }) => (
         rounded-[18px] xs1000:rounded-[22px] text-white bg-gradient-to-b from-[#90C6B6] to-[#7BAF9D] shadow-[inset_0_0_15px_2px_rgba(255,255,255,0.73)]">
           <p className="z-[3] relative">Start using</p>
         </button>
-        <div className="absolute z-2 left-1/2 -translate-x-1/2 -translate-y-2 w-[100%] h-[50px] rounded-full bg-[#A9FCE2] blur-xl opacity-[1]"></div>
+        <div className="absolute z-2 left-1/2 -translate-x-1/2 -translate-y-2 w-[80%] h-[50px] rounded-full bg-[#A9FCE2] blur-xl opacity-[1]"></div>
       </div>
       <button className="
         px-[18px] py-[12px]
